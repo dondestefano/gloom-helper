@@ -3,18 +3,11 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { SET_DECK } from '../redux/actionTypes';
 import { getActiveDeck } from '../redux/reducer';
+import {DefaultDeck} from '../data/DefaultDeck'
 
-
-const defaultDeck = [
-  { name: "+1", id: "itemone"},
-  { name: "+0", id: "itemtwo"},
-  { name: "-1", id: "itemthree"},
-  { name: "+2", id: "itemfour"},
-  { name: "-2", id: "itemFive"}
-];
+const defaultDeck = DefaultDeck
 
 export default function Character() {
-  const deck = useSelector(getActiveDeck);
   const dispatch = useDispatch();
 
   return (

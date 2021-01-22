@@ -8,6 +8,7 @@ export function deckReducer(state = { activeDeck: [], drawnDeck: [], currentDeck
         let setDeck = action.payload
         return {activeDeck: setDeck, drawnDeck: [], currentDeck: setDeck }
     case SHUFFLE_DECK:
+      console.log(activeDeck)
         return {...state, activeDeck: shuffleDeck(currentDeck) }
     case DRAW_CARD:
       let newDraw = [activeDeck[0], ...drawnDeck];

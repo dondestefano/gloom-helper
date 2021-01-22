@@ -11,7 +11,7 @@ export default function Combat() {
 
   const currentCard = () =>{
     if (drawnDeck.length !== 0) {
-      return drawnDeck[0].name
+      return drawnDeck[0].title
     }
     else {
     return "No card drawn"
