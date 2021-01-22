@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { SET_DECK } from '../redux/actionTypes';
-import { getDeck } from '../redux/reducer';
+import { getActiveDeck } from '../redux/reducer';
 
 
 const defaultDeck = [
@@ -14,7 +14,7 @@ const defaultDeck = [
 ];
 
 export default function Character() {
-  const deck = useSelector(getDeck);
+  const deck = useSelector(getActiveDeck);
   const dispatch = useDispatch();
 
   return (

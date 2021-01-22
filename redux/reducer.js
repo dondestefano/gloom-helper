@@ -1,39 +1,40 @@
 
-import { SET_DECK, SHUFFLE_DECK } from './actionTypes';
+import { SET_DECK, SHUFFLE_DECK, DRAW_CARD } from './actionTypes';
 
-export function deckReducer(state = { activeDeck: [] }, action) {
-  console.log('** reducer function was called **');
-  const { activeDeck } = state;
+export function deckReducer(state = { activeDeck: [], drawnDeck: [], currentDeck: [] }, action) {
+  const { activeDeck, drawnDeck, currentDeck } = state;
   switch (action.type) {
     case SET_DECK:
-        console.log('** Set **');
-        console.log(activeDeck)
-        let deck = action.payload
-        return {activeDeck: deck}
+        let setDeck = action.payload
+        return {activeDeck: setDeck, drawnDeck: [], currentDeck: setDeck }
     case SHUFFLE_DECK:
-        return {activeDeck: shuffleDeck(activeDeck)}
+        return {...state, activeDeck: shuffleDeck(currentDeck) }
+    case DRAW_CARD:
+      let newDraw = [activeDeck[0], ...drawnDeck];
+      let newActive = activeDeck.slice(1);
+        return {...state, drawnDeck: newDraw, activeDeck: newActive}
     default:
-      console.log(activeDeck)
-        return {activeDeck}
+        return {activeDeck, drawnDeck, currentDeck}
   }
 }
 
-export const getDeck = (state) => state.activeDeck;
+export const getActiveDeck = (state) => state.activeDeck;
+export const getDrawnDeck = (state) => state.drawnDeck;
 
 
-  //"Fisher–Yates shuffle"
-  function shuffleDeck(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+//"Fisher–Yates shuffle"
+function shuffleDeck(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
   
-    while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
   
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue
-    }
-    console.log(array)
-
-    return array;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue
   }
+  console.log(array)
+
+  return array;
+}
