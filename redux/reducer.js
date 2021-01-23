@@ -9,9 +9,8 @@ export function deckReducer(state = { activeDeck: [], drawnDeck: [], currentDeck
         let setDeck = action.payload
         return {activeDeck: setDeck, drawnDeck: [], currentDeck: setDeck }
     case SHUFFLE_DECK:
-        return {...state, activeDeck: shuffleDeck(currentDeck) }
+        return {...state, activeDeck: shuffleDeck(currentDeck), drawnDeck: [] }
     case DRAW_CARD:
-      console.log("drawn deck", drawnDeck)
       let drawnCard = activeDeck[0]
       let newActive = activeDeck.slice(1)
         return {...state, drawnDeck: [...drawnDeck, drawnCard], activeDeck: newActive}

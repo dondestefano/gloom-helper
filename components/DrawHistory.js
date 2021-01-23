@@ -7,7 +7,7 @@ import { getDrawnDeck } from '../redux/reducer';
 export default function DrawHistory() {
     const drawnDeck = useSelector(getDrawnDeck)
 
-    const currentCard = (id) =>{
+    const highlightCurrentCard = (id) =>{
         let drawLength = drawnDeck.length
         if (id === drawnDeck[drawLength - 1].id)
         {return true} else {
@@ -16,14 +16,15 @@ export default function DrawHistory() {
       }
 
     return(
-        <SafeAreaView style={{height: 150}}>
+        <SafeAreaView style={{height: "25%"}}>
             <FlatList
                 contentContainerStyle={styles.container}
                 data={drawnDeck}
                 inverted
                 numColumns= {5}
+                ListHeaderComponent={<Text style={{fontSize: 18, marginVertical: 8, width: 250}}>Draw history:</Text>}
                 renderItem={({ item }) =>
-                    <View style={{...styles.card, borderColor: currentCard(item.id)? "green": "black"}}>
+                    <View style={{...styles.card, backgroundColor: item.backgroundColor, borderColor: highlightCurrentCard(item.id)? "lime": "black"}}>
                         <Text style={{fontSize: 15}}>{item.title}</Text>
                     </View>
                 }
@@ -37,10 +38,9 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         flexWrap: "wrap-reverse",
-        width: "100%",
+        width: 300,
         marginVertical: 8,
         padding: 20,
-        margin: 10,
     },
 
     card: {
@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
         height: 30,
         alignItems: "center",
         justifyContent: "center",
-        borderRadius:  10,
-        borderWidth: 1,
+        borderRadius:  5,
+        borderWidth: 2,
         margin: 5
     },
   });
