@@ -1,5 +1,6 @@
 
 import { SET_DECK, SHUFFLE_DECK, DRAW_CARD } from './actionTypes';
+import {DefaultDeck} from '../data/DefaultDeck'
 
 export function deckReducer(state = { activeDeck: [], drawnDeck: [], currentDeck: [] }, action) {
   const { activeDeck, drawnDeck, currentDeck } = state;
@@ -8,14 +9,14 @@ export function deckReducer(state = { activeDeck: [], drawnDeck: [], currentDeck
         let setDeck = action.payload
         return {activeDeck: setDeck, drawnDeck: [], currentDeck: setDeck }
     case SHUFFLE_DECK:
-      console.log(activeDeck)
         return {...state, activeDeck: shuffleDeck(currentDeck) }
     case DRAW_CARD:
-      let newDraw = [activeDeck[0], ...drawnDeck];
-      let newActive = activeDeck.slice(1);
-        return {...state, drawnDeck: newDraw, activeDeck: newActive}
+      console.log("drawn deck", drawnDeck)
+      let drawnCard = activeDeck[0]
+      let newActive = activeDeck.slice(1)
+        return {...state, drawnDeck: [...drawnDeck, drawnCard], activeDeck: newActive}
     default:
-        return {activeDeck, drawnDeck, currentDeck}
+        return {activeDeck: DefaultDeck, drawnDeck, currentDeck: DefaultDeck}
   }
 }
 
@@ -35,7 +36,5 @@ function shuffleDeck(array) {
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue
   }
-  console.log(array)
-
   return array;
 }

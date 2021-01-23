@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, SafeAreaView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import DrawHistory from '../components/DrawHistory';
 import { DRAW_CARD, SHUFFLE_DECK } from '../redux/actionTypes';
 import { getDrawnDeck, getActiveDeck } from '../redux/reducer';
 
@@ -10,8 +11,10 @@ export default function Combat() {
   const dispatch = useDispatch();
 
   const currentCard = () =>{
-    if (drawnDeck.length !== 0) {
-      return drawnDeck[0].title
+    let drawLength = drawnDeck.length
+    console.log(drawLength)
+    if (drawLength !== 0) {
+      return drawnDeck[drawLength - 1].title
     }
     else {
     return "No card drawn"
@@ -29,12 +32,16 @@ export default function Combat() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text>Combatscreen!</Text>
-      <Text>Current card: {currentCard()}</Text>
-      <Button title="Draw card" onPress={() => drawTop()}/>
-      <Button title="Shuffle deck" onPress={() => dispatch({ type: SHUFFLE_DECK })}/>
-    </View>
+    <SafeAreaView style={{  alignItems: 'center',     flex: 1}}>
+      <DrawHistory/>
+      <View style={styles.container}>
+        <Text>Combatscreen!</Text>
+        <Text>Current card: {currentCard()}</Text>
+        <Button title="Draw card" onPress={() => drawTop()}/>
+        <Button title="Shuffle deck" onPress={() => dispatch({ type: SHUFFLE_DECK })}/>
+      </View>
+    </SafeAreaView>
+
   );
 }
 
