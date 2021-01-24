@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
 import { useSelector } from 'react-redux';
 import { FlatList } from 'react-native-gesture-handler';
 import { getDrawnDeck } from '../redux/reducer';
@@ -21,11 +21,11 @@ export default function DrawHistory() {
                 contentContainerStyle={styles.container}
                 data={drawnDeck}
                 inverted
-                numColumns= {5}
+                numColumns= {4}
                 ListHeaderComponent={<Text style={{fontSize: 18, marginVertical: 8, width: 250}}>Draw history:</Text>}
                 renderItem={({ item }) =>
                     <View style={{...styles.card, backgroundColor: item.backgroundColor, borderColor: highlightCurrentCard(item.id)? "lime": "black"}}>
-                        <Text style={{fontSize: 15}}>{item.title}</Text>
+                        <Image source={item.img} style={{ width: 40, height: 40 }}/>
                     </View>
                 }
             />
@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
     },
 
     card: {
-        width: 40,
-        height: 30,
+        width: 50,
+        height: 40,
         alignItems: "center",
         justifyContent: "center",
         borderRadius:  5,
