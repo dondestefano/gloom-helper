@@ -1,16 +1,18 @@
   
-import React from 'react';
-import { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { AuthContext } from '../context/AuthContext';
 
 export default function CreateAccount() {
     const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const { createUser } = useContext(AuthContext);
+
   const submit = () => {
     console.log('submitting new user with');
-    console.log(username, email, password);
+    createUser(email, password);
   };
 
   return (
@@ -22,7 +24,7 @@ export default function CreateAccount() {
       <Text style={{ fontWeight: '600', fontSize: 16 }}>Username</Text>
         <TextInput
           placeholder="Enter username"
-          value={email}
+          value={username}
           onChangeText={setUsername}
           style={{
             backgroundColor: 'lightgrey',

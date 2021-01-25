@@ -1,17 +1,18 @@
-  
 import React from 'react';
 import { useState, useContext } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { AuthContext } from '../context/AuthContext';
 
 export default function Login() {
 const navigation = useNavigation()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const { loginUser } = useContext(AuthContext);
+
   const submit = () => {
-    console.log('submitting log in');
-    console.log(email, password);
+    loginUser(email, password);
   };
 
   return (
