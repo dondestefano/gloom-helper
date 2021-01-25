@@ -2,24 +2,35 @@
 import React from 'react';
 import { useState, useContext } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
-export default function Login() {
-const navigation = useNavigation()
+export default function CreateAccount() {
+    const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const submit = () => {
-    console.log('submitting log in');
-    console.log(email, password);
+    console.log('submitting new user with');
+    console.log(username, email, password);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontWeight: 'bold', fontSize: 24, marginBottom: 10 }}>
-        Login
+        <Text style={{ fontWeight: 'bold', fontSize: 24, marginBottom: 10 }}>
+        New user
       </Text>
       <View style={{ width: '60%' }}>
+      <Text style={{ fontWeight: '600', fontSize: 16 }}>Username</Text>
+        <TextInput
+          placeholder="Enter username"
+          value={email}
+          onChangeText={setEmail}
+          style={{
+            backgroundColor: 'lightgrey',
+            padding: 10,
+            borderRadius: 5,
+            marginBottom: 10,
+          }}
+        />
         <Text style={{ fontWeight: '600', fontSize: 16 }}>Email</Text>
         <TextInput
           placeholder="Enter email"
@@ -40,12 +51,8 @@ const navigation = useNavigation()
           onChangeText={setPassword}
           style={{ backgroundColor: 'lightgrey', padding: 10, borderRadius: 5 }}
         />
+        <Button title="Create new user" onPress={submit} />
       </View>
-      <View style= {styles.buttonContainer}>
-            <Button title="New user" onPress={() => {navigation.navigate('CreateAccount')}} />
-            <Button title="Login" onPress={submit}  />
-        </View>
-
     </View>
   );
 }
@@ -57,11 +64,4 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
-
-    buttonContainer: {
-        width: "50%",
-        flexDirection: "row",
-        margin: 10,
-        justifyContent: "space-between"
-    }
   });
