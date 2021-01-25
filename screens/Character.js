@@ -1,11 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { ADD_CARD, SET_DECK, REMOVE_CARD } from '../redux/actionTypes';
-import { getActiveDeck } from '../redux/reducer';
-import {DefaultDeck} from '../data/DefaultDeck'
-
-const defaultDeck = DefaultDeck
+import { StyleSheet, View, Button } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { ADD_CARD, REMOVE_CARD } from '../redux/actionTypes';
 
 export default function Character() {
   const dispatch = useDispatch();
