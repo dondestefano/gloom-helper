@@ -23,7 +23,7 @@ export default function CreateAccount() {
         <TextInput
           placeholder="Enter username"
           value={email}
-          onChangeText={setEmail}
+          onChangeText={setUsername}
           style={{
             backgroundColor: 'lightgrey',
             padding: 10,
