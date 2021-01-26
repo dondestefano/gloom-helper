@@ -42,7 +42,7 @@ export default function Perk (props) {
 
     return(
     <View style = {styles.container}>      
-        <Text>{props.perkRule}</Text>
+        <Text style={{width: 250}}>{props.perkRule}</Text>
             <CheckBox
                 disabled={false}
                 value={toggleCheckBox}
@@ -61,11 +61,4 @@ const styles = StyleSheet.create({
         marginBottom: 12,
         justifyContent: "space-between"
     },
-    
-    buttonContainer: {
-        width: "50%",
-        flexDirection: "row",
-        margin: 10,
-        justifyContent: "space-between"
-    }
 });

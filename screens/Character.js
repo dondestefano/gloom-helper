@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { ADD_CARD, REMOVE_CARD } from '../redux/actionTypes';
 import { AuthContext } from '../context/AuthContext';
 import Perk from '../components/Perk'
+import CharacterPerks from '../components/CharacterPerks'
 
 
 export default function Character() {
@@ -24,7 +25,7 @@ export default function Character() {
 
   return (
     <View style={styles.container}>
-      <Perk perkRule = "Add two +1 ice and remove two +1" addCards={newCards} removeCards = {oldCards}/>
+      <CharacterPerks/>
       <Button title="Logout" onPress={userSignOut}/>
     </View>
   );
