@@ -23,8 +23,6 @@ export default function Perk (props) {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
     const [hasBeenActivated, setHasBeenActivated] = useState(false)
     const dispatch = useDispatch();
-
-    console.log(props)
     
     useEffect(() => {
         if(toggleCheckBox === true) {

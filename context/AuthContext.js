@@ -9,7 +9,6 @@ export default function AuthContextProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      console.log('user: ', user);
       setUser(user);
       setIsLoading(false);
     });
@@ -29,10 +28,8 @@ export default function AuthContextProvider({ children }) {
   }
 
   const loginUser = async (email, password) => {
-    console.log('calling log in ');
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      console.log('logging in');
     } catch (error) {
       console.log('Encountered error: ', error);
     }
@@ -40,7 +37,6 @@ export default function AuthContextProvider({ children }) {
 
   const signOut = async () => {
     try {
-      console.log("Signing out")
       await auth.signOut();
     } catch (error) {
       console.log('Encountered error:', error);
