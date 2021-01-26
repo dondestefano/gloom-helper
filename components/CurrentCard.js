@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image} from 'react-native';
 import { useSelector } from 'react-redux';
 import { getDrawnDeck } from '../redux/reducer';
 
-export default function Card(card) {
+export default function Card() {
     const drawnDeck = useSelector(getDrawnDeck)
 
     const currentCard = () =>{
