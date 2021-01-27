@@ -22,7 +22,7 @@ export default function DrawHistory() {
                 data={drawnDeck}
                 inverted
                 numColumns= {4}
-                ListHeaderComponent={<Text style={{fontSize: 18, marginVertical: 8, width: 250}}>Draw history:</Text>}
+                ListHeaderComponent={<Text style={{fontSize: 18, marginVertical: 8, width: 250, textAlign: "center"}}>Draw history</Text>}
                 renderItem={({ item }) =>
                     <View style={{...styles.card, backgroundColor: item.backgroundColor, borderColor: highlightCurrentCard(item.id)? "lime": "black"}}>
                         <Image source={item.img} style={{ width: 40, height: 40 }}/>
