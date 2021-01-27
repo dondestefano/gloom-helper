@@ -40,14 +40,24 @@ export default function Perk (props) {
     }, [toggleCheckBox])
 
     return(
-    <View style = {styles.container}>      
-        <Text style={{width: 250}}>{props.perkRule}</Text>
+        <View>
+            <View style = {styles.container}>      
+            <Text style={{width: 250}}>{props.perkRule}</Text>
             <CheckBox
                 disabled={false}
                 value={toggleCheckBox}
                 onValueChange={(newValue) => setToggleCheckBox(newValue)}
             />
-    </View>
+            </View>
+            <View
+                style={{
+                    borderBottomColor: 'grey',
+                    borderBottomWidth: 1,
+                    width: "100%",
+                    marginBottom: 16
+                    }}
+            />
+        </View>
     );
 }
 
@@ -57,7 +67,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         padding: 5,
         alignItems: "center",
-        marginBottom: 12,
         justifyContent: "space-between"
     },
 });
