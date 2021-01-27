@@ -7,14 +7,14 @@ const decrementIcon = require("../assets/decrementIcon.png")
 const useCounter = (initialAmount = 0,) => {
     const [amount, setAmount] = useState(initialAmount);
   
-    const increment = () => setAmount((amount) => Math.max(amount + 1, 0));
+    const increment = () => setAmount((amount) => amount + 1)
     const decrement = () => setAmount((amount) => Math.max(amount - 1, 0));
 
     return [amount, increment, decrement];
 };
 
 export default function StatTracker() {
-    const [amontXp, incrementXp, decrementXp] = useCounter(0);
+    const [amountXp, incrementXp, decrementXp] = useCounter(0);
     const [amountHealth, incrementHealth, decrementHealth] = useCounter(0);
 
     return (
@@ -42,7 +42,7 @@ export default function StatTracker() {
           >
             <Image style={{ width: 30, height: 30 }} source={decrementIcon} />
           </TouchableOpacity>
-          <Text style={styles.trackerText}>XP: {amontXp}</Text>
+          <Text style={styles.trackerText}>XP: {amountXp}</Text>
           <TouchableOpacity
             onPress={incrementXp}
             activeOpacity={0.8}
