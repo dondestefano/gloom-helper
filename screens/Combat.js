@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import DrawHistory from '../components/DrawHistory';
 import CurrentCard from '../components/CurrentCard';
 import { DRAW_CARD, SHUFFLE_DECK } from '../redux/actionTypes';
-import { getDrawnDeck, getActiveDeck } from '../redux/reducer';
+import { getActiveDeck } from '../redux/reducer';
+import StatTracker from '../components/StatTracker';
 
 export default function Combat() {
   const activeDeck = useSelector(getActiveDeck);
@@ -22,6 +23,7 @@ export default function Combat() {
 
   return (
     <SafeAreaView style={{  alignItems: 'center', flex: 1}}>
+      <StatTracker/>
       <DrawHistory/>
       <View style={styles.container}>
         <CurrentCard/>
@@ -37,6 +39,7 @@ export default function Combat() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 12,
     backgroundColor: '#fff',
     alignItems: 'center',
