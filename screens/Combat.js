@@ -12,13 +12,11 @@ export default function Combat() {
   const dispatch = useDispatch();
 
   const drawTop = () => {
+    // Reset activeDeck if there are no cards left.
     if (activeDeck.length === 0) {
       dispatch({ type: SHUFFLE_DECK })
     } 
     dispatch({ type: DRAW_CARD })
-
-    // Reset activeDeck if the last card has been drawn.
-    // Length 1 to compensate for asynchronus update.
   }
 
   return (
@@ -35,7 +33,6 @@ export default function Combat() {
 
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {

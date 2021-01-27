@@ -1,24 +1,12 @@
 import React, { useContext } from 'react';
 import { StyleSheet, View, Button } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { ADD_CARD, REMOVE_CARD } from '../redux/actionTypes';
 import { AuthContext } from '../context/AuthContext';
-import Perk from '../components/Perk'
 import CharacterPerks from '../components/CharacterPerks'
 
 
 export default function Character() {
   const { signOut } = useContext(AuthContext);
-
-  let newCards = [
-    { id: "newCard", title: "+1", img: require("../assets/plusOneIce.png"), backgroundColor: "blue" },
-    { id: "newCard2", title: "+1", img: require("../assets/plusOneIce.png"), backgroundColor: "blue" }
-  ]
-  let oldCards = [
-    { id: "plusOne1", title: "+1", img: require("../assets/plusOne.png"), backgroundColor: "green" },
-    { id: "plusOne2", title: "+1", img: require("../assets/plusOne.png"), backgroundColor: "green" },
-  ]
-
+  
   const userSignOut = () => {
     signOut()
   }

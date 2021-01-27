@@ -1,7 +1,6 @@
   
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StyleSheet, Text, View, Button } from 'react-native';
 import Login from '../screens/Login'
 import CreateAccount from '../screens/CreateAccount'
 

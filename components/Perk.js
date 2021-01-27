@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import { ADD_CARD, REMOVE_CARD, SHUFFLE_DECK } from '../redux/actionTypes';
 import PropTypes from 'prop-types';
 
-
 Perk.defaultProps = {
     perkRule: "No rule",
     addCards: [],
