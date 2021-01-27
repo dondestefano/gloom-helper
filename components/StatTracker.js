@@ -1,5 +1,5 @@
 import React, { useState, useEffect }from 'react';
-import { StyleSheet, Text, Button, View, TouchableOpacity, Image} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 
 const incrementIcon = require("../assets/incrementIcon.png")
 const decrementIcon = require("../assets/decrementIcon.png")
@@ -7,7 +7,7 @@ const decrementIcon = require("../assets/decrementIcon.png")
 const useCounter = (initialAmount = 0,) => {
     const [amount, setAmount] = useState(initialAmount);
   
-    const increment = () => setAmount((amount) => amount + 1)
+    const increment = () => setAmount((amount) => Math.min(amount + 1, 50))
     const decrement = () => setAmount((amount) => Math.max(amount - 1, 0));
 
     return [amount, increment, decrement];
