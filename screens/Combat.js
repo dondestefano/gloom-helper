@@ -20,7 +20,16 @@ export default function Combat() {
   }
 
   return (
-    <SafeAreaView style={{  alignItems: 'center', flex: 1}}>
+    <SafeAreaView style={{ alignItems: 'center', flex: 1}}>
+      <Text style={{fontSize: 20, marginTop: 20, marginBottom: 8}}>Characters name</Text>
+      <View
+          style={{
+              borderBottomColor: 'grey',
+              borderBottomWidth: 2,
+              width: "90%",
+              marginBottom: 16
+              }}
+      />
       <StatTracker/>
       <DrawHistory/>
       <View style={styles.container}>
