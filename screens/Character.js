@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Button } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
 import CharacterPerks from '../components/CharacterPerks'
 
@@ -13,6 +13,12 @@ export default function Character() {
 
   return (
     <View style={styles.container}>
+      <SafeAreaView
+        // Adds a safa are for Android device.
+        style={{
+        paddingTop: Platform.OS === 'android' ? 25 : 0
+      }}
+      />
       <CharacterPerks/>
       <Button title="Logout" onPress={userSignOut}/>
     </View>

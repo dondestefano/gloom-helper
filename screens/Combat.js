@@ -25,6 +25,12 @@ export default function Combat() {
 
   return (
     <SafeAreaView style={{ alignItems: 'center', flex: 1}}>
+      <SafeAreaView
+        // Adds a safa are for Android device.
+        style={{
+        paddingTop: Platform.OS === 'android' ? 25 : 0
+      }}
+      />
       <Text style={{fontSize: 20, marginTop: 20, marginBottom: 8, fontFamily: loaded? "Rooters" : null}}>Characters name</Text>
       <View
           style={{
