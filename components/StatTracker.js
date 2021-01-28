@@ -1,5 +1,6 @@
 import React, { useState, useEffect }from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import { useFonts } from 'expo-font';
 
 const incrementIcon = require("../assets/incrementIcon.png")
 const decrementIcon = require("../assets/decrementIcon.png")
@@ -17,6 +18,10 @@ export default function StatTracker() {
     const [amountXp, incrementXp, decrementXp] = useCounter(0);
     const [amountHealth, incrementHealth, decrementHealth] = useCounter(0);
 
+    const [loaded] = useFonts({
+      Rooters: require('../assets/fonts/Rooters.ttf'),
+    });
+
     return (
       <View style={{ ...styles.container }}>
         <View style={{...styles.tracker, backgroundColor: "red"}}>
@@ -26,7 +31,7 @@ export default function StatTracker() {
           >
             <Image style={{ width: 30, height: 30 }} source={decrementIcon} />
           </TouchableOpacity>
-          <Text style={styles.trackerText}>Health: {amountHealth}</Text>
+          <Text style={{...styles.trackerText, fontFamily: loaded? "Rooters" : null}}>Health: {amountHealth}</Text>
           <TouchableOpacity
             onPress={incrementHealth}
             activeOpacity={0.8}
@@ -42,7 +47,7 @@ export default function StatTracker() {
           >
             <Image style={{ width: 30, height: 30 }} source={decrementIcon} />
           </TouchableOpacity>
-          <Text style={styles.trackerText}>XP: {amountXp}</Text>
+          <Text style={{...styles.trackerText, fontFamily: loaded? "Rooters" : null}}>XP: {amountXp}</Text>
           <TouchableOpacity
             onPress={incrementXp}
             activeOpacity={0.8}
@@ -64,15 +69,16 @@ const styles = StyleSheet.create({
   },
 
   trackerText: {
-    width:70, 
+    width:90, 
     textAlign: "center",
     backgroundColor: "white",
-    borderWidth: 1
+    borderWidth: 1,
+    fontSize: 17
   },
 
   tracker: {
       flexDirection: "row",
-      width: 150,
+      width: 160,
       height: 50,
       alignItems: "center",
       justifyContent: "space-evenly",

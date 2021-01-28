@@ -6,10 +6,14 @@ import CurrentCard from '../components/CurrentCard';
 import { DRAW_CARD, SHUFFLE_DECK } from '../redux/actionTypes';
 import { getActiveDeck } from '../redux/reducer';
 import StatTracker from '../components/StatTracker';
+import { useFonts } from 'expo-font';
 
 export default function Combat() {
   const activeDeck = useSelector(getActiveDeck);
   const dispatch = useDispatch();
+  const [loaded] = useFonts({
+    Rooters: require('../assets/fonts/Rooters.ttf'),
+  });
 
   const drawTop = () => {
     // Reset activeDeck if there are no cards left.
@@ -21,7 +25,7 @@ export default function Combat() {
 
   return (
     <SafeAreaView style={{ alignItems: 'center', flex: 1}}>
-      <Text style={{fontSize: 20, marginTop: 20, marginBottom: 8}}>Characters name</Text>
+      <Text style={{fontSize: 20, marginTop: 20, marginBottom: 8, fontFamily: loaded? "Rooters" : null}}>Characters name</Text>
       <View
           style={{
               borderBottomColor: 'grey',

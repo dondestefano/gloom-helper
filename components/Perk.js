@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ADD_CARD, REMOVE_CARD, SHUFFLE_DECK } from '../redux/actionTypes';
 import PropTypes from 'prop-types';
+import { useFonts } from 'expo-font';
 
 Perk.defaultProps = {
     perkRule: "No rule",
@@ -22,6 +23,10 @@ export default function Perk (props) {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
     const [hasBeenActivated, setHasBeenActivated] = useState(false)
     const dispatch = useDispatch();
+
+    const [loaded] = useFonts({
+        Rooters: require('../assets/fonts/Rooters.ttf'),
+      });
     
     useEffect(() => {
         if(toggleCheckBox === true) {
@@ -42,7 +47,7 @@ export default function Perk (props) {
     return(
         <View>
             <View style = {styles.container}>      
-            <Text style={{width: 250}}>{props.perkRule}</Text>
+            <Text style={{width: 250, fontFamily: loaded? "Rooters" : null, fontSize: 15}}>{props.perkRule}</Text>
             <CheckBox
                 disabled={false}
                 value={toggleCheckBox}
