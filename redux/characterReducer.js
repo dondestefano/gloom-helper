@@ -1,4 +1,4 @@
-import { SET_CHARACTER_HATCHET  } from './actionTypes';
+import { SET_CHARACTER_HATCHET, SET_CHARACTER_SELECTED  } from './actionTypes';
 import {CharacterHatchetPerks} from '../data/CharacterHatchetPerks'
 
 const NO_CHARACTER = "NO_CHARACTER"
@@ -9,10 +9,12 @@ export function characterReducer(state = { selectedCharacter: "", characterPerks
   const { selectedCharacter, characterPerks, isCharacterSelected } = state;
   switch (action.type) {
 
-    case SET_CHARACTER_HATCHET:
+    case SET_CHARACTER_HATCHET:  
         return {selectedCharacter: HATCHET, characterPerks: CharacterHatchetPerks, isCharacterSelected: true}
 
     default:
         return {selectedCharacter: NO_CHARACTER, characterPerks: [], isCharacterSelected: false}
   }
 }
+
+export const getIsCharacterSelected = (state) => state.character.isCharacterSelected;
