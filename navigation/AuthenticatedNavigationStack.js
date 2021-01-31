@@ -47,7 +47,7 @@ export default function AuthenticatedNavigationStack() {
           component={isCharacterSelected? Character :  CharacterSelect} />
         <Tab.Screen 
           name="Perks"
-          component={Perks} />
+          component={isCharacterSelected? Perks :  CharacterSelect} />
         <Tab.Screen 
           name="Combat" 
           component={Combat} />

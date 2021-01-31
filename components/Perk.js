@@ -30,17 +30,25 @@ export default function Perk (props) {
     
     useEffect(() => {
         if(toggleCheckBox === true) {
+            //On select.
+            //Add cards from addCards and remove cards from removeCards.
             props.addCards.map(card=> dispatch({ type: ADD_CARD, payload: card }))
             props.removeCards.map(card=> dispatch({ type: REMOVE_CARD, payload: card.id }))
             setHasBeenActivated(true)
+            
+            //Shuffle deck when new cards are added.
+            dispatch({ type: SHUFFLE_DECK })
         }
 
         if(toggleCheckBox === false && hasBeenActivated === true) {
+            //Reverse order for deselect.
+            //Add cards from removeCards and remove cards from addCards.
             props.addCards.map(card=> dispatch({ type: REMOVE_CARD, payload: card.id }))
             props.removeCards.map(card=> dispatch({ type: ADD_CARD, payload: card }))
+            
+            //Shuffle deck when old cards are returned.
+            dispatch({ type: SHUFFLE_DECK })
         }
-
-        dispatch({ type: SHUFFLE_DECK })
 
     }, [toggleCheckBox])
 
