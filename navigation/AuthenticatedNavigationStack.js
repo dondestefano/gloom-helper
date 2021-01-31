@@ -1,6 +1,7 @@
   
 import React from 'react';
 import Character from '../screens/Character';
+import Perks from '../screens/Perks';
 import Combat from '../screens/Combat';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -19,6 +20,8 @@ export default function AuthenticatedNavigationStack() {
 
             if (route.name === 'Character') {
               iconName = "heart-half-full"
+            } else if (route.name === 'Perks') {
+              iconName = "star-half-full"
             } else if (route.name === 'Combat') {
               iconName = "sword"
             }
@@ -39,6 +42,9 @@ export default function AuthenticatedNavigationStack() {
         <Tab.Screen 
           name="Character" 
           component={Character} />
+        <Tab.Screen 
+          name="Perks" 
+          component={Perks} />
         <Tab.Screen 
           name="Combat" 
           component={Combat} />
