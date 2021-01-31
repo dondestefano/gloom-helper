@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image} from 'react-native';
 import { useSelector } from 'react-redux';
-import { getDrawnDeck } from '../redux/deckReducer';
 
 export default function Card() {
-    const drawnDeck = useSelector(getDrawnDeck)
+    const drawnDeck = useSelector(state => state.deck.drawnDeck)
 
     const currentCard = () =>{
         let drawLength = drawnDeck.length
