@@ -18,12 +18,10 @@ export function deckReducer(state = { activeDeck: [], drawnDeck: [], currentDeck
         return {...state, drawnDeck: [...drawnDeck, drawnCard], activeDeck: newActive}
 
     case ADD_CARD:
-      console.log('Add');
       let newCard = action.payload
       return {...state, activeDeck: [...activeDeck, newCard], currentDeck: [...currentDeck, newCard]}
 
     case REMOVE_CARD:
-      console.log('Remove');
       const idToRemove = action.payload;
       let updatedDeck = currentDeck.filter((item) => item.id !== idToRemove)
       return {...state, activeDeck: updatedDeck, currentDeck: updatedDeck}

@@ -9,7 +9,7 @@ export function characterReducer(state = {
     selectedCharacter: "", 
     characterPerks: [], 
     isCharacterSelected: false,
-    characterName: "" }, 
+    characterName: "Unnamed" }, 
     action) {
 
   const { selectedCharacter, characterPerks, isCharacterSelected, characterName } = state;
@@ -21,7 +21,7 @@ export function characterReducer(state = {
         return {...state, selectedCharacter: newCharacter, characterPerks: newPerks, isCharacterSelected: true}
 
     default:
-        return {selectedCharacter: NO_CHARACTER, characterPerks: [], isCharacterSelected: false, characterName: "Unnamed"}
+        return {...state}
   }
 }
 
