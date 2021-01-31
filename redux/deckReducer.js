@@ -33,8 +33,8 @@ export function deckReducer(state = { activeDeck: [], drawnDeck: [], currentDeck
   }
 }
 
-export const getActiveDeck = (state) => state.activeDeck;
-export const getDrawnDeck = (state) => state.drawnDeck;
+export const getActiveDeck = (state) => state.deck.activeDeck;
+export const getDrawnDeck = (state) => state.deck.drawnDeck;
 
 
 //"Fisher–Yates shuffle"

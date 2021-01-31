@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import DrawHistory from '../components/DrawHistory';
 import CurrentCard from '../components/CurrentCard';
 import { DRAW_CARD, SHUFFLE_DECK } from '../redux/actionTypes';
+import { getActiveDeck } from '../redux/deckReducer';
 import StatTracker from '../components/StatTracker';
 import { useFonts } from 'expo-font';
 
 export default function Combat() {
-  const activeDeck = useSelector(state => state.deck.activeDeck);
+  const activeDeck = useSelector(getActiveDeck);
   const dispatch = useDispatch();
   const [loaded] = useFonts({
     Rooters: require('../assets/fonts/Rooters.ttf'),

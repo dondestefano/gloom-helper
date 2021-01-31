@@ -2,9 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
 import { useSelector } from 'react-redux';
 import { FlatList } from 'react-native-gesture-handler';
+import { getDrawnDeck } from '../redux/deckReducer';
 
 export default function DrawHistory() {
-    const drawnDeck = useSelector(state => state.deck.drawnDeck)
+    const drawnDeck = useSelector(getDrawnDeck)
 
     const highlightCurrentCard = (id) =>{
         let drawLength = drawnDeck.length
