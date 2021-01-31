@@ -5,7 +5,6 @@ import Perk from './Perk'
 import { getCharacterPerks } from '../redux/characterReducer';
 
 export default function CharacterPerks() {
-
     const perkList = useSelector(getCharacterPerks)
 
     return (

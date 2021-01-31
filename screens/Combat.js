@@ -7,10 +7,13 @@ import { DRAW_CARD, SHUFFLE_DECK } from '../redux/actionTypes';
 import { getActiveDeck } from '../redux/deckReducer';
 import StatTracker from '../components/StatTracker';
 import { useFonts } from 'expo-font';
+import { getCharacterName } from '../redux/characterReducer';
 
 export default function Combat() {
   const activeDeck = useSelector(getActiveDeck);
+  const characterName = useSelector(getCharacterName)
   const dispatch = useDispatch();
+
   const [loaded] = useFonts({
     Rooters: require('../assets/fonts/Rooters.ttf'),
   });
@@ -31,7 +34,7 @@ export default function Combat() {
         paddingTop: Platform.OS === 'android' ? 25 : 0
       }}
       />
-      <Text style={{fontSize: 20, marginTop: 20, marginBottom: 8, fontFamily: loaded? "Rooters" : null}}>Characters name</Text>
+      <Text style={{fontSize: 20, marginTop: 20, marginBottom: 8, fontFamily: loaded? "Rooters" : null}}>{characterName}'s status</Text>
       <View
           style={{
               borderBottomColor: 'grey',

@@ -5,20 +5,27 @@ const NO_CHARACTER = "NO_CHARACTER"
 const HATCHET = "Hatchet"
 
 
-export function characterReducer(state = { selectedCharacter: "", characterPerks: [], isCharacterSelected: false }, action) {
-  const { selectedCharacter, characterPerks, isCharacterSelected } = state;
+export function characterReducer(state = { 
+    selectedCharacter: "", 
+    characterPerks: [], 
+    isCharacterSelected: false,
+    characterName: "" }, 
+    action) {
+
+  const { selectedCharacter, characterPerks, isCharacterSelected, characterName } = state;
   switch (action.type) {
 
     case SET_CHARACTER_HATCHET:  
     let newCharacter = HATCHET
     let newPerks = CharacterHatchetPerks
-        return {selectedCharacter: newCharacter, characterPerks: newPerks, isCharacterSelected: true}
+        return {...state, selectedCharacter: newCharacter, characterPerks: newPerks, isCharacterSelected: true}
 
     default:
-        return {selectedCharacter: NO_CHARACTER, characterPerks: [], isCharacterSelected: false}
+        return {selectedCharacter: NO_CHARACTER, characterPerks: [], isCharacterSelected: false, characterName: "Unnamed"}
   }
 }
 
 export const getIsCharacterSelected = (state) => state.character.isCharacterSelected;
 export const getCharacterPerks = (state) => state.character.characterPerks;
 export const getSelectedCharacter = (state) => state.character.selectedCharacter;
+export const getCharacterName = (state) => state.character.characterName;
