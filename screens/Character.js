@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { StyleSheet, View, SafeAreaView, Button, TextInput, Text } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { AuthContext } from '../context/AuthContext';
-import { CHANGE_CHARACTERS_NAME } from '../redux/actionTypes';
 import { getCharacterName } from '../redux/characterReducer';
 import { getSelectedCharacter } from '../redux/characterReducer';
 import { useFonts } from 'expo-font';

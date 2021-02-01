@@ -17,12 +17,10 @@ export default function CharacterNameField() {
   });
 
   const onEditDone = () => {
-      console.log("done")
     dispatch({ type: CHANGE_CHARACTERS_NAME, payload: newName })
   }
 
   const onChangeText = (newName) => {
-      console.log("Changing")
       setNewName(newName)
   }
 
