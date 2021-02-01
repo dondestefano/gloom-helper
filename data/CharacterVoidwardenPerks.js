@@ -1,15 +1,15 @@
 const plusZero = require("../assets/plusZero.png")
 const PlusZeroHealOne = require("../assets/plusZeroHealOne.png")
-const plusOne = require("../assets/plusOne.png")
-const plusTwoWind = require("../assets/plusTwoWind.png")
 const minusOne = require("../assets/minusOne.png")
+const minusTwo = require("../assets/minusTwo.png")
 const plusOneDarkness = require("../assets/plusOneDarkness.png")
 const plusOneIce = require("../assets/plusOneIce.png")
 const PlusOneHealOne = require("../assets/plusOneHealOne.png")
 const plusOneCurse = require("../assets/plusOneCurse.png")
+const plusOnePoison = require("../assets/plusOnePoison.png")
 const plusThree = require("../assets/plusThree.png")
 
-export const CharacterHatchetPerks =
+export const CharacterVoidwardenPerks =
         [   // Perk 1
             {id: "perkOne",
             perkRule: "Remove two -1 cards", 
