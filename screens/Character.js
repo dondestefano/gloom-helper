@@ -7,7 +7,7 @@ import { getSelectedCharacter } from '../redux/characterReducer';
 import { useFonts } from 'expo-font';
 import CharacterNameField from '../components/CharacterNameField';
 import CharacterLevelField from '../components/CharacterLevelField';
-
+import CharacterEquipmentField from '../components/CharacterEquipmentField';
 
 export default function Character() {
   const { signOut } = useContext(AuthContext);
@@ -37,11 +37,15 @@ export default function Character() {
               borderBottomColor: 'grey',
               borderBottomWidth: 2,
               width: "90%",
-              marginBottom: 16
               }}
       />
-      <CharacterNameField/>
-      <CharacterLevelField/>
+      <View style={styles.characterInfoContainer}>
+        <CharacterNameField/>
+        <CharacterLevelField/>
+        <CharacterEquipmentField/>
+      </View>
+
+
       <Button title="Logout" onPress={userSignOut}/>
     </View>
   );
@@ -56,9 +60,9 @@ const styles = StyleSheet.create({
   },
 
   characterInfoContainer: {
-    flex: 1,
+    flex: 2,
     backgroundColor: '#fff',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'flex-start',
     padding: 16
   },

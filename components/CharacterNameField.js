@@ -33,13 +33,13 @@ export default function CharacterNameField() {
   return (
       <View style={styles.characterInfoContainer}>
             <View style={styles.infoRow}>
-                <Text style={{fontSize: 16, fontFamily: loaded? "Rooters" : null, paddingEnd: 8}}>Name:</Text>
+                <Text style={{fontSize: 16, fontFamily: loaded? "Rooters" : null, marginEnd: 8}}>Name:</Text>
                 <TextInput
                     placeholder="Character name"
                     value={newName}
                     onChangeText={text => onChangeText(text)}
                     onEndEditing = {onEditDone}
-                    style={{...styles.inputText, width: 200, fontFamily: loaded? "Rooters" : null}}
+                    style={{...styles.inputText, width: 230, fontFamily: loaded? "Rooters" : null}}
                 />
             </View>
       </View>
@@ -48,18 +48,17 @@ export default function CharacterNameField() {
 
 const styles = StyleSheet.create({
   characterInfoContainer: {
-    flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    padding: 16
+    padding: 16,
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 16
   },
 
   infoRow: {
     flexDirection: "row",
     alignContent: "center",
     alignItems: "center",
-    marginBottom: 16
   },
 
   inputText: {
