@@ -7,6 +7,7 @@ import { getCharacterName } from '../redux/characterReducer';
 import { getSelectedCharacter } from '../redux/characterReducer';
 import { useFonts } from 'expo-font';
 import CharacterNameField from '../components/CharacterNameField';
+import CharacterLevelField from '../components/CharacterLevelField';
 
 
 export default function Character() {
@@ -41,6 +42,7 @@ export default function Character() {
               }}
       />
       <CharacterNameField/>
+      <CharacterLevelField/>
       <Button title="Logout" onPress={userSignOut}/>
     </View>
   );

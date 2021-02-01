@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react';
-import { StyleSheet, View, SafeAreaView, Button, TextInput, Text } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, TextInput, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { CHANGE_CHARACTERS_NAME } from '../redux/actionTypes';
 import { getCharacterName } from '../redux/characterReducer';
-import { getSelectedCharacter } from '../redux/characterReducer';
 import { useFonts } from 'expo-font';
 
 
@@ -32,36 +31,6 @@ export default function CharacterNameField() {
           return characterName
       } else { return "" }
   }
-
-  const LevelRow = () => {
-    return (
-      <View>
-          <View style={styles.infoRow}>
-              <Text style={{fontSize: 16, fontFamily: loaded? "Rooters" : null, paddingEnd: 8}}>XP:</Text>
-              <TextInput
-                  placeholder="0"
-                  keyboardType = 'numeric'
-                  style={{...styles.inputText, width: 80, marginEnd: 8, fontFamily: loaded? "Rooters" : null}}
-              />
-              <Text style={{fontSize: 16, fontFamily: loaded? "Rooters" : null, paddingEnd: 8}}>Level:</Text>
-              <TextInput
-                  placeholder="0"
-                  keyboardType = 'numeric'
-                  style={{...styles.inputText, width: 80, fontFamily: loaded? "Rooters" : null}}
-              />
-          </View>
-          
-          <View
-            style={{
-                borderBottomColor: 'grey',
-                borderBottomWidth: 1,
-                width: "100%",
-                marginBottom: 16
-            }}
-        />
-      </View>
-    )
-}
 
   return (
       <View style={styles.characterInfoContainer}>
