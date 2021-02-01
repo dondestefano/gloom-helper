@@ -36,6 +36,7 @@ export default function AuthenticatedNavigationStack() {
         tabBarOptions={{
           activeTintColor: 'tomato',
           inactiveTintColor: 'gray',
+          keyboardHidesTabBar: true,
           labelStyle: {
             fontSize: 12,
             fontWeight: "bold"
