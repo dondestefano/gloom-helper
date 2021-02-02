@@ -77,7 +77,7 @@ export default function CharacterEquipmentField() {
           fontFamily: loaded ? "Rooters" : null,
         }}
       />
-      <TouchableOpacity onPress={clearItemAlert} activeOpacity={0.8}>
+      <TouchableOpacity style={{ width: 100, height: 50 }} onPress={clearItemAlert} activeOpacity={0.8}>
         <Image
           style={{ width: 100, height: 50 }}
           source={clearCharacterItemsButton}
