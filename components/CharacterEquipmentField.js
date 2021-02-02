@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import { StyleSheet, View, TextInput, Text, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, Image, Alert } from 'react-native';
 import { useFonts } from 'expo-font';
 
 const clearCharacterItemsButton = require("../assets/clearItemsBtn.png")
@@ -10,6 +10,19 @@ export default function CharacterEquipmentField() {
   });
 
   const characterItemInputRef = useRef(null)
+
+
+  const clearItemAlert = () => {
+    Alert.alert('Clear items!', 'Are you sure you want to clear all item data for this character?', [
+        {
+            text: 'Cancel',
+          },
+      {
+        text: 'Yes',
+        onPress: () => {clearCharacterItems()},
+      },
+    ]);
+  };
 
   const clearCharacterItems = () => {
       characterItemInputRef.current.clear()
@@ -33,7 +46,7 @@ export default function CharacterEquipmentField() {
                   style={{...styles.equipmentInput, fontFamily: loaded? "Rooters" : null}}
               />
             <TouchableOpacity
-                onPress={clearCharacterItems}
+                onPress={clearItemAlert}
                 activeOpacity={0.8}
             >
                 <Image style={{ width: 100, height: 50 }} source={clearCharacterItemsButton} />
