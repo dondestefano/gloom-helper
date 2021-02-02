@@ -1,4 +1,4 @@
-import { SET_CHARACTER_HATCHET, SET_CHARACTER_VOIDWARDEN, CHANGE_CHARACTERS_NAME } from './actionTypes';
+import { SET_CHARACTER_HATCHET, SET_CHARACTER_VOIDWARDEN, CHANGE_CHARACTERS_NAME, RESET_CHARACTER } from './actionTypes';
 import {CharacterHatchetPerks} from '../data/CharacterHatchetPerks'
 import {CharacterVoidwardenPerks} from '../data/CharacterVoidwardenPerks'
 
@@ -26,6 +26,9 @@ export function characterReducer(state = {
     case CHANGE_CHARACTERS_NAME:  
         let newName = action.payload
         return {...state, characterName: newName }
+
+    case RESET_CHARACTER:
+        return{ selectedCharacter: "", characterPerks: [], isCharacterSelected: false, characterName: "Unnamed" }
 
     default:
         return {...state}

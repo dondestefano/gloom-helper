@@ -1,30 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   StyleSheet,
   View,
   SafeAreaView,
-  Button,
   Text,
 } from "react-native";
 import { useSelector } from "react-redux";
-import { AuthContext } from "../context/AuthContext";
 import { getSelectedCharacter } from "../redux/characterReducer";
 import { useFonts } from "expo-font";
 import CharacterNameField from "../components/CharacterNameField";
 import CharacterLevelField from "../components/CharacterLevelField";
 import CharacterEquipmentField from "../components/CharacterEquipmentField";
+import SettingsComponent from "../components/SettingsComponent";
 
 export default function Character() {
-  const { signOut } = useContext(AuthContext);
-
   const selectedCharacter = useSelector(getSelectedCharacter);
 
   const [loaded] = useFonts({
     Rooters: require("../assets/fonts/Rooters.ttf"),
   });
-  const userSignOut = () => {
-    signOut();
-  };
 
   return (
     <View style={styles.container}>
@@ -55,9 +49,8 @@ export default function Character() {
         <CharacterNameField />
         <CharacterLevelField />
         <CharacterEquipmentField />
+        <SettingsComponent />
       </View>
-
-      <Button title="Logout" onPress={userSignOut} />
     </View>
   );
 }

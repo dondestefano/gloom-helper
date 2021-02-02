@@ -8,7 +8,6 @@ export default function Character() {
     const dispatch = useDispatch();
   
     const setCharacter = (character) => {
-        console.log(character)
         dispatch({ type: character })
       }
 
