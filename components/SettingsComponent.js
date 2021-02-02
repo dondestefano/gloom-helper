@@ -110,13 +110,8 @@ export default function SettingsComponent() {
 
     return (
         <View style={styles.container}>
-          <SettingsModal isVisible={isVisible} setIsVisible={setIsVisible}/>  
-          <TouchableOpacity onPress={() => setIsVisible(true)} activeOpacity={0.8}>
-            <Image
-              style={{ width: 100, height: 50 }}
-              source={settingsButton}
-            />
-          </TouchableOpacity>
+          <SettingsModal isVisible={isVisible} setIsVisible={setIsVisible}/> 
+          <CustomButton image={settingsButton} onPressEffect={() => setIsVisible(true)}/>
         </View>
       );
     }
