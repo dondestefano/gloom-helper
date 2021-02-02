@@ -1,12 +1,19 @@
-import React from 'react';
-import { StyleSheet, View, TextInput, Text } from 'react-native';
+import React, {useRef} from 'react';
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, Image } from 'react-native';
 import { useFonts } from 'expo-font';
 
+const clearCharacterItemsButton = require("../assets/clearItemsBtn.png")
 
 export default function CharacterEquipmentField() {
   const [loaded] = useFonts({
     Rooters: require('../assets/fonts/Rooters.ttf'),
   });
+
+  const characterItemInputRef = useRef(null)
+
+  const clearCharacterItems = () => {
+      characterItemInputRef.current.clear()
+  }
 
   return (
       <View style={styles.characterInfoContainer}>
@@ -15,15 +22,22 @@ export default function CharacterEquipmentField() {
               <TextInput
                   placeholder="0"
                   keyboardType = 'numeric'
-                  style={{...styles.inputText, width: 95, marginEnd: 8, fontFamily: loaded? "Rooters" : null}}
+                  style={{...styles.inputText, fontFamily: loaded? "Rooters" : null}}
               />
           </View>
-          <Text style={{fontSize: 16, fontFamily: loaded? "Rooters" : null, marginBottom: 8}}>Items:</Text>
+            <Text style={{fontSize: 16, fontFamily: loaded? "Rooters" : null, marginBottom: 8}}>Items:</Text>
               <TextInput
                   placeholder="Character items"
+                  ref={characterItemInputRef}
                   multiline={true}
                   style={{...styles.equipmentInput, fontFamily: loaded? "Rooters" : null}}
               />
+            <TouchableOpacity
+                onPress={clearCharacterItems}
+                activeOpacity={0.8}
+            >
+                <Image style={{ width: 100, height: 50 }} source={clearCharacterItemsButton} />
+            </TouchableOpacity>
       </View>
   );
 }
@@ -46,7 +60,9 @@ const styles = StyleSheet.create({
     inputText: {
       backgroundColor: 'lightgrey',
       fontSize: 16,
-      paddingHorizontal: 5
+      paddingHorizontal: 5,
+      width: 95, 
+      marginEnd: 8
     },
 
     equipmentInput: {
@@ -55,7 +71,7 @@ const styles = StyleSheet.create({
         padding: 5, 
         width: 280,
         height: 200,
-        marginEnd: 8,
+        marginBottom: 8,
         textAlignVertical: 'top',
     }
   });
