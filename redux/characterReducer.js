@@ -4,19 +4,19 @@ import {
   CHANGE_CHARACTERS_NAME,
   RESET_CHARACTER,
   SET_EXPERIENCE,
-} from "./actionTypes";
-import { CharacterHatchetPerks } from "../data/CharacterHatchetPerks";
-import { CharacterVoidwardenPerks } from "../data/CharacterVoidwardenPerks";
+} from './actionTypes';
+import { CharacterHatchetPerks } from '../data/CharacterHatchetPerks';
+import { CharacterVoidwardenPerks } from '../data/CharacterVoidwardenPerks';
 
-const HATCHET = "Hatchet";
-const VOIDWARDEN = "Voidwarden";
+const HATCHET = 'Hatchet';
+const VOIDWARDEN = 'Voidwarden';
 
 export function characterReducer(
   state = {
-    selectedCharacter: "",
+    selectedCharacter: '',
     characterPerks: [],
     isCharacterSelected: false,
-    characterName: "Unnamed",
+    characterName: 'Unnamed',
     characterExperience: 0,
     characterLevel: 1,
   },
@@ -54,10 +54,12 @@ export function characterReducer(
 
     case RESET_CHARACTER:
       return {
-        selectedCharacter: "",
+        selectedCharacter: '',
         characterPerks: [],
         isCharacterSelected: false,
-        characterName: "Unnamed",
+        characterName: 'Unnamed',
+        characterExperience: 0,
+        characterLevel: 1,
       };
 
     default:
