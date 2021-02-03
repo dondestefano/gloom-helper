@@ -1,38 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
-import { useFonts } from "expo-font";
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
-const incrementIcon = require("../assets/incrementIcon.png");
-const decrementIcon = require("../assets/decrementIcon.png");
+const incrementIcon = require('../assets/incrementIcon.png');
+const decrementIcon = require('../assets/decrementIcon.png');
 
 const useCounter = (initialAmount = 0) => {
   const [amount, setAmount] = useState(initialAmount);
 
-  const increment = () => setAmount((amount) => Math.min(amount + 1, 50));
-  const decrement = () => setAmount((amount) => Math.max(amount - 1, 0));
+  const increment = () => setAmount(() => Math.min(amount + 1, 50));
+  const decrement = () => setAmount(() => Math.max(amount - 1, 0));
 
   return [amount, increment, decrement];
 };
 
 const Tracker = ({ stat, color, amount, increment, decrement }) => {
-  const [loaded] = useFonts({
-    Rooters: require("../assets/fonts/Rooters.ttf"),
-  });
-
   return (
     <View style={{ ...styles.tracker, backgroundColor: color }}>
       <TouchableOpacity onPress={decrement} activeOpacity={0.8}>
-        <Image style={{ width: 30, height: 30 }} source={decrementIcon} />
+        <Image style={styles.buttonImage} source={decrementIcon} />
       </TouchableOpacity>
 
-      <Text
-        style={{ ...styles.trackerText, fontFamily: loaded ? "Rooters" : null }}
-      >
+      <Text style={styles.trackerText}>
         {stat}: {amount}
       </Text>
 
       <TouchableOpacity onPress={increment} activeOpacity={0.8}>
-        <Image style={{ width: 30, height: 30 }} source={incrementIcon} />
+        <Image style={styles.buttonImage} source={incrementIcon} />
       </TouchableOpacity>
     </View>
   );
@@ -45,19 +38,19 @@ export default function StatTracker() {
   return (
     <View style={{ ...styles.container }}>
       <Tracker
-        stat={"Health"}
+        stat={'Health'}
         amount={amountHealth}
         increment={incrementHealth}
         decrement={decrementHealth}
-        color={"tomato"}
+        color={'tomato'}
       />
 
       <Tracker
-        stat={"XP"}
+        stat={'XP'}
         amount={amountXp}
         increment={incrementXp}
         decrement={decrementXp}
-        color={"deepskyblue"}
+        color={'deepskyblue'}
       />
     </View>
   );
@@ -65,27 +58,33 @@ export default function StatTracker() {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
     padding: 20,
-    backgroundColor: "white",
+    backgroundColor: 'white',
   },
 
   trackerText: {
     width: 90,
-    textAlign: "center",
-    backgroundColor: "white",
+    textAlign: 'center',
+    backgroundColor: 'white',
     borderWidth: 1,
     fontSize: 17,
+    fontFamily: 'rooters-standard',
+  },
+
+  buttonImage: {
+    width: 30,
+    height: 30,
   },
 
   tracker: {
-    flexDirection: "row",
+    flexDirection: 'row',
     width: 160,
     height: 50,
-    alignItems: "center",
-    justifyContent: "space-evenly",
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
     borderRadius: 3,
     borderWidth: 2,
     margin: 5,

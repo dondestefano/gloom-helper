@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { StyleSheet, View, TextInput, Text } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
-import { CHANGE_CHARACTERS_NAME } from "../redux/actionTypes";
-import { getCharacterName } from "../redux/characterReducer";
-import { useFonts } from "expo-font";
-import { useEffect } from "react";
+import React, { useState } from 'react';
+import { StyleSheet, View, TextInput, Text } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { CHANGE_CHARACTERS_NAME } from '../redux/actionTypes';
+import { getCharacterName } from '../redux/characterReducer';
+import { useEffect } from 'react';
 
 export default function CharacterNameField() {
   const [newName, setNewName] = useState(initialName());
@@ -12,50 +11,34 @@ export default function CharacterNameField() {
 
   const characterName = useSelector(getCharacterName);
 
-  const [loaded] = useFonts({
-    Rooters: require("../assets/fonts/Rooters.ttf"),
-  });
-
   useEffect(() => {
     // Only update the name if it's new.
     if (newName !== characterName) {
       dispatch({ type: CHANGE_CHARACTERS_NAME, payload: newName });
     }
-  }, [newName]);
+  }, [characterName, dispatch, newName]);
 
-  const onChangeText = (newName) => {
-    setNewName(newName);
+  const onChangeText = (editedName) => {
+    setNewName(editedName);
   };
 
   function initialName() {
-    if (characterName !== "Unnamed") {
+    if (characterName !== 'Unnamed') {
       return characterName;
     } else {
-      return "";
+      return '';
     }
   }
 
   return (
     <View style={styles.characterInfoContainer}>
       <View style={styles.infoRow}>
-        <Text
-          style={{
-            fontSize: 16,
-            fontFamily: loaded ? "Rooters" : null,
-            marginEnd: 8,
-          }}
-        >
-          Name:
-        </Text>
+        <Text style={styles.text}>Name:</Text>
         <TextInput
           placeholder="Character name"
           value={newName}
           onChangeText={(text) => onChangeText(text)}
-          style={{
-            ...styles.inputText,
-            width: 230,
-            fontFamily: loaded ? "Rooters" : null,
-          }}
+          style={styles.inputText}
         />
       </View>
     </View>
@@ -64,7 +47,7 @@ export default function CharacterNameField() {
 
 const styles = StyleSheet.create({
   characterInfoContainer: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     padding: 16,
     borderWidth: 1,
     borderRadius: 8,
@@ -72,14 +55,22 @@ const styles = StyleSheet.create({
   },
 
   infoRow: {
-    flexDirection: "row",
-    alignContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignContent: 'center',
+    alignItems: 'center',
+  },
+
+  text: {
+    marginEnd: 8,
+    fontSize: 16,
+    fontFamily: 'rooters-standard',
   },
 
   inputText: {
-    backgroundColor: "lightgrey",
+    backgroundColor: 'lightgrey',
     fontSize: 16,
     paddingHorizontal: 5,
+    width: 230,
+    fontFamily: 'rooters-standard',
   },
 });

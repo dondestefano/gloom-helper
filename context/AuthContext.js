@@ -17,15 +17,18 @@ export default function AuthContextProvider({ children }) {
   });
 
   const createUser = async (email, password) => {
-    auth.createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      var user = userCredential.user;
-    })
-    .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-    });
-  }
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        //Open for eventual save user data
+        var user = userCredential.user;
+      })
+      .catch((error) => {
+        //Open for eventual error handling
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      });
+  };
 
   const loginUser = async (email, password) => {
     try {
@@ -44,7 +47,9 @@ export default function AuthContextProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ isLoading, user, loginUser, signOut, createUser }}>
+    <AuthContext.Provider
+      value={{ isLoading, user, loginUser, signOut, createUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

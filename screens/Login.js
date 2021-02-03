@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { AuthContext } from '../context/AuthContext';
 
 export default function Login() {
-const navigation = useNavigation()
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -17,52 +17,71 @@ const navigation = useNavigation()
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontWeight: 'bold', fontSize: 24, marginBottom: 10 }}>
-        Login
-      </Text>
-      <View style={{ width: '60%' }}>
-        <Text style={{ fontWeight: '600', fontSize: 16 }}>Email</Text>
+      <Text style={styles.headerText}>Login</Text>
+      <View style={styles.loginContainer}>
+        <Text style={styles.promptText}>Email</Text>
         <TextInput
           placeholder="Enter email"
           value={email}
           onChangeText={setEmail}
-          style={{
-            backgroundColor: 'lightgrey',
-            padding: 10,
-            borderRadius: 5,
-            marginBottom: 10,
-          }}
+          style={styles.editText}
         />
-        <Text style={{ fontWeight: '600', fontSize: 16 }}>Password</Text>
+        <Text style={styles.promptText}>Password</Text>
         <TextInput
           placeholder="Enter password"
           value={password}
           secureTextEntry={true}
           onChangeText={setPassword}
-          style={{ backgroundColor: 'lightgrey', padding: 10, borderRadius: 5 }}
+          style={styles.editText}
         />
       </View>
-      <View style= {styles.buttonContainer}>
-            <Button title="New user" onPress={() => {navigation.navigate('CreateAccount')}} />
-            <Button title="Login" onPress={submit}  />
-        </View>
-
+      <View style={styles.buttonContainer}>
+        <Button
+          title="New user"
+          onPress={() => {
+            navigation.navigate('CreateAccount');
+          }}
+        />
+        <Button title="Login" onPress={submit} />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-    buttonContainer: {
-        width: "50%",
-        flexDirection: "row",
-        margin: 10,
-        justifyContent: "space-between"
-    }
-  });
+  buttonContainer: {
+    width: '50%',
+    flexDirection: 'row',
+    margin: 10,
+    justifyContent: 'space-between',
+  },
+
+  editText: {
+    backgroundColor: 'lightgrey',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+
+  headerText: {
+    fontFamily: 'rooters-standard',
+    fontSize: 24,
+    marginBottom: 10,
+  },
+
+  promptText: {
+    fontWeight: '600',
+    fontSize: 16,
+  },
+
+  loginContainer: {
+    width: '60%',
+  },
+});

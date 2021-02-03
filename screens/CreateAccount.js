@@ -1,4 +1,3 @@
-  
 import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
@@ -17,41 +16,29 @@ export default function CreateAccount() {
 
   return (
     <View style={styles.container}>
-        <Text style={{ fontWeight: 'bold', fontSize: 24, marginBottom: 10 }}>
-        New user
-      </Text>
-      <View style={{ width: '60%' }}>
-      <Text style={{ fontWeight: '600', fontSize: 16 }}>Username</Text>
+      <Text style={styles.headerText}>New user</Text>
+      <View style={styles.registerContainer}>
+        <Text style={styles.promptText}>Username</Text>
         <TextInput
           placeholder="Enter username"
           value={username}
           onChangeText={setUsername}
-          style={{
-            backgroundColor: 'lightgrey',
-            padding: 10,
-            borderRadius: 5,
-            marginBottom: 10,
-          }}
+          style={styles.editText}
         />
-        <Text style={{ fontWeight: '600', fontSize: 16 }}>Email</Text>
+        <Text style={styles.promptText}>Email</Text>
         <TextInput
           placeholder="Enter email"
           value={email}
           onChangeText={setEmail}
-          style={{
-            backgroundColor: 'lightgrey',
-            padding: 10,
-            borderRadius: 5,
-            marginBottom: 10,
-          }}
+          style={styles.editText}
         />
-        <Text style={{ fontWeight: '600', fontSize: 16 }}>Password</Text>
+        <Text style={styles.promptText}>Password</Text>
         <TextInput
           placeholder="Enter password"
           value={password}
           secureTextEntry={true}
           onChangeText={setPassword}
-          style={{ backgroundColor: 'lightgrey', padding: 10, borderRadius: 5 }}
+          style={styles.editText}
         />
         <Button title="Create new user" onPress={submit} />
       </View>
@@ -60,10 +47,32 @@ export default function CreateAccount() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  editText: {
+    backgroundColor: 'lightgrey',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+
+  headerText: {
+    fontFamily: 'rooters-standard',
+    fontSize: 24,
+    marginBottom: 10,
+  },
+
+  promptText: {
+    fontWeight: '600',
+    fontSize: 16,
+  },
+
+  registerContainer: {
+    width: '60%',
+  },
+});
