@@ -1,14 +1,18 @@
   
 import React from 'react';
+import CharacterSelect from '../screens/CharacterSelect';
 import Character from '../screens/Character';
 import Perks from '../screens/Perks';
 import Combat from '../screens/Combat';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { getIsCharacterSelected } from '../redux/characterReducer';
+import { useSelector } from 'react-redux';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
 
 export default function AuthenticatedNavigationStack() {
+  const isCharacterSelected = useSelector(getIsCharacterSelected);
 
   return (
     <Tab.Navigator 
@@ -25,14 +29,14 @@ export default function AuthenticatedNavigationStack() {
             } else if (route.name === 'Combat') {
               iconName = "sword"
             }
-
-            // You can return any component that you like here!
+            
             return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
           },
         })}
         tabBarOptions={{
           activeTintColor: 'tomato',
           inactiveTintColor: 'gray',
+          keyboardHidesTabBar: true,
           labelStyle: {
             fontSize: 12,
             fontWeight: "bold"
@@ -41,10 +45,10 @@ export default function AuthenticatedNavigationStack() {
       >
         <Tab.Screen 
           name="Character" 
-          component={Character} />
+          component={isCharacterSelected? Character :  CharacterSelect} />
         <Tab.Screen 
-          name="Perks" 
-          component={Perks} />
+          name="Perks"
+          component={isCharacterSelected? Perks :  CharacterSelect} />
         <Tab.Screen 
           name="Combat" 
           component={Combat} />

@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, FlatList, Button, View} from 'react-native';
+import { useSelector } from 'react-redux';
 import Perk from './Perk'
-import {CharacterHatchetPerks} from '../data/CharacterHatchetPerks'
+import { getCharacterPerks } from '../redux/characterReducer';
 
 export default function CharacterPerks() {
-
-    const perkList = CharacterHatchetPerks
+    const perkList = useSelector(getCharacterPerks)
 
     return (
         <SafeAreaView style={styles.container}>
