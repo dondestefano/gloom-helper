@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
     width: 250,
     textAlign: 'center',
-    fontFamily: 'Rooter',
+    fontFamily: 'rooters-standard',
   },
 
   card: {
