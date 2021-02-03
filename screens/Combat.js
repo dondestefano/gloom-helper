@@ -6,17 +6,13 @@ import CurrentCard from '../components/CurrentCard';
 import { DRAW_CARD, SHUFFLE_DECK } from '../redux/actionTypes';
 import { getActiveDeck } from '../redux/deckReducer';
 import StatTracker from '../components/StatTracker';
-import { useFonts } from 'expo-font';
 import { getCharacterName } from '../redux/characterReducer';
+import HeaderComponent from '../components/HeaderComponent';
 
 export default function Combat() {
   const activeDeck = useSelector(getActiveDeck);
   const characterName = useSelector(getCharacterName);
   const dispatch = useDispatch();
-
-  const [loaded] = useFonts({
-    Rooters: require('../assets/fonts/rooters-standard.ttf'),
-  });
 
   const drawTop = () => {
     // Reset activeDeck if there are no cards left.
@@ -27,31 +23,8 @@ export default function Combat() {
   };
 
   return (
-    <SafeAreaView style={{ alignItems: 'center', flex: 1 }}>
-      <SafeAreaView
-        // Adds a safa are for Android device.
-        style={{
-          paddingTop: Platform.OS === 'android' ? 25 : 0,
-        }}
-      />
-      <Text
-        style={{
-          fontSize: 20,
-          marginTop: 20,
-          marginBottom: 8,
-          fontFamily: loaded ? 'Rooters' : null,
-        }}
-      >
-        {characterName}'s status
-      </Text>
-      <View
-        style={{
-          borderBottomColor: 'grey',
-          borderBottomWidth: 2,
-          width: '90%',
-          marginBottom: 16,
-        }}
-      />
+    <SafeAreaView style={styles.screenContainer}>
+      <HeaderComponent title={characterName + "'s status"} />
       <StatTracker />
       <DrawHistory />
       <View style={styles.container}>
@@ -68,6 +41,11 @@ export default function Combat() {
 }
 
 const styles = StyleSheet.create({
+  screenContainer: {
+    alignItems: 'center',
+    flex: 1,
+  },
+
   container: {
     flex: 1,
     padding: 12,

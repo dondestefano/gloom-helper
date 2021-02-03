@@ -1,34 +1,16 @@
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import CharacterPerks from '../components/CharacterPerks';
 import { getSelectedCharacter } from '../redux/characterReducer';
 import { useSelector } from 'react-redux';
-import { useFonts } from 'expo-font';
+import HeaderComponent from '../components/HeaderComponent';
 
 export default function Character() {
   const selectedCharacter = useSelector(getSelectedCharacter);
-  const [loaded] = useFonts({
-    Rooters: require('../assets/fonts/rooters-standard.ttf'),
-  });
 
   return (
     <View style={styles.container}>
-      <SafeAreaView
-        // Adds a safe area for Android device.
-        style={{
-          paddingTop: Platform.OS === 'android' ? 25 : 0,
-        }}
-      />
-      <Text
-        style={{
-          fontSize: 20,
-          marginTop: 20,
-          marginBottom: 8,
-          fontFamily: loaded ? 'Rooters' : null,
-        }}
-      >
-        {selectedCharacter} Perks
-      </Text>
+      <HeaderComponent title={selectedCharacter + 'Perks'} />
       <CharacterPerks />
     </View>
   );
