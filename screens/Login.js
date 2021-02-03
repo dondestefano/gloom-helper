@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { AuthContext } from '../context/AuthContext';
 
 export default function Login() {
-const navigation = useNavigation()
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -42,27 +42,31 @@ const navigation = useNavigation()
           style={{ backgroundColor: 'lightgrey', padding: 10, borderRadius: 5 }}
         />
       </View>
-      <View style= {styles.buttonContainer}>
-            <Button title="New user" onPress={() => {navigation.navigate('CreateAccount')}} />
-            <Button title="Login" onPress={submit}  />
-        </View>
-
+      <View style={styles.buttonContainer}>
+        <Button
+          title="New user"
+          onPress={() => {
+            navigation.navigate('CreateAccount');
+          }}
+        />
+        <Button title="Login" onPress={submit} />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 
-    buttonContainer: {
-        width: "50%",
-        flexDirection: "row",
-        margin: 10,
-        justifyContent: "space-between"
-    }
-  });
+  buttonContainer: {
+    width: '50%',
+    flexDirection: 'row',
+    margin: 10,
+    justifyContent: 'space-between',
+  },
+});

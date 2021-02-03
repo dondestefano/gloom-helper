@@ -1,4 +1,3 @@
-  
 import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
@@ -17,11 +16,11 @@ export default function CreateAccount() {
 
   return (
     <View style={styles.container}>
-        <Text style={{ fontWeight: 'bold', fontSize: 24, marginBottom: 10 }}>
+      <Text style={{ fontWeight: 'bold', fontSize: 24, marginBottom: 10 }}>
         New user
       </Text>
       <View style={{ width: '60%' }}>
-      <Text style={{ fontWeight: '600', fontSize: 16 }}>Username</Text>
+        <Text style={{ fontWeight: '600', fontSize: 16 }}>Username</Text>
         <TextInput
           placeholder="Enter username"
           value={username}
@@ -60,10 +59,10 @@ export default function CreateAccount() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

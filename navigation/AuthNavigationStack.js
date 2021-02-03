@@ -1,4 +1,3 @@
-  
 import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import AuthenticatedNavigationStack from './AuthenticatedNavigationStack';
@@ -7,10 +6,14 @@ import { AuthContext } from '../context/AuthContext';
 
 export default function AuthNavigation() {
   const { user } = useContext(AuthContext);
-  
+
   return (
     <NavigationContainer>
-      {user ? <AuthenticatedNavigationStack /> : <UnauthenticatedNavigationStack />}
+      {user ? (
+        <AuthenticatedNavigationStack />
+      ) : (
+        <UnauthenticatedNavigationStack />
+      )}
     </NavigationContainer>
   );
 }

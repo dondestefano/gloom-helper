@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef } from 'react';
 import {
   StyleSheet,
   View,
@@ -7,28 +7,28 @@ import {
   TouchableOpacity,
   Image,
   Alert,
-} from "react-native";
-import { useFonts } from "expo-font";
+} from 'react-native';
+import { useFonts } from 'expo-font';
 
-const clearCharacterItemsButton = require("../assets/clearItemsBtn.png");
+const clearCharacterItemsButton = require('../assets/clearItemsBtn.png');
 
 export default function CharacterEquipmentField() {
   const [loaded] = useFonts({
-    Rooters: require("../assets/fonts/Rooters.ttf"),
+    Rooters: require('../assets/fonts/Rooters.ttf'),
   });
 
   const characterItemInputRef = useRef(null);
 
   const clearItemAlert = () => {
     Alert.alert(
-      "Clear items!",
-      "Are you sure you want to clear all item data for this character?",
+      'Clear items!',
+      'Are you sure you want to clear all item data for this character?',
       [
         {
-          text: "Cancel",
+          text: 'Cancel',
         },
         {
-          text: "Yes",
+          text: 'Yes',
           onPress: () => {
             clearCharacterItems();
           },
@@ -44,28 +44,16 @@ export default function CharacterEquipmentField() {
   return (
     <View style={styles.characterInfoContainer}>
       <View style={styles.infoRow}>
-        <Text
-          style={{
-            fontSize: 16,
-            fontFamily: loaded ? "Rooters" : null,
-            marginEnd: 8,
-          }}
-        >
+        <Text style={{ ...styles.text, fontFamily: loaded ? 'Rooters' : null }}>
           Gold:
         </Text>
         <TextInput
           placeholder="0"
           keyboardType="numeric"
-          style={{ ...styles.inputText, fontFamily: loaded ? "Rooters" : null }}
+          style={{ ...styles.inputText, fontFamily: loaded ? 'Rooters' : null }}
         />
       </View>
-      <Text
-        style={{
-          fontSize: 16,
-          fontFamily: loaded ? "Rooters" : null,
-          marginBottom: 8,
-        }}
-      >
+      <Text style={{ ...styles.text, fontFamily: loaded ? 'Rooters' : null }}>
         Items:
       </Text>
       <TextInput
@@ -74,18 +62,15 @@ export default function CharacterEquipmentField() {
         multiline={true}
         style={{
           ...styles.equipmentInput,
-          fontFamily: loaded ? "Rooters" : null,
+          fontFamily: loaded ? 'Rooters' : null,
         }}
       />
       <TouchableOpacity
-        style={{ width: 100, height: 50 }}
+        style={styles.buttonSize}
         onPress={clearItemAlert}
         activeOpacity={0.8}
       >
-        <Image
-          style={{ width: 100, height: 50 }}
-          source={clearCharacterItemsButton}
-        />
+        <Image style={styles.buttonSize} source={clearCharacterItemsButton} />
       </TouchableOpacity>
     </View>
   );
@@ -93,21 +78,21 @@ export default function CharacterEquipmentField() {
 
 const styles = StyleSheet.create({
   characterInfoContainer: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     padding: 16,
     borderWidth: 1,
     borderRadius: 8,
   },
 
   infoRow: {
-    flexDirection: "row",
-    alignContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignContent: 'center',
+    alignItems: 'center',
     marginBottom: 16,
   },
 
   inputText: {
-    backgroundColor: "lightgrey",
+    backgroundColor: 'lightgrey',
     fontSize: 16,
     paddingHorizontal: 5,
     width: 95,
@@ -115,12 +100,22 @@ const styles = StyleSheet.create({
   },
 
   equipmentInput: {
-    backgroundColor: "lightgrey",
+    backgroundColor: 'lightgrey',
     fontSize: 16,
     padding: 5,
     width: 280,
     height: 200,
     marginBottom: 8,
-    textAlignVertical: "top",
+    textAlignVertical: 'top',
+  },
+
+  text: {
+    fontSize: 16,
+    marginBottom: 8,
+  },
+
+  buttonSize: {
+    width: 100,
+    height: 50,
   },
 });

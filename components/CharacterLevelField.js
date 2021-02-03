@@ -1,18 +1,18 @@
-import React from "react";
-import { StyleSheet, View, TextInput, Text } from "react-native";
-import { useFonts } from "expo-font";
+import React from 'react';
+import { StyleSheet, View, TextInput, Text } from 'react-native';
+import { useFonts } from 'expo-font';
 import {
   getCharacterExperience,
   getCharacterLevel,
-} from "../redux/characterReducer";
-import { SET_EXPERIENCE } from "../redux/actionTypes";
-import { useDispatch, useSelector } from "react-redux";
+} from '../redux/characterReducer';
+import { SET_EXPERIENCE } from '../redux/actionTypes';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function CharacterNameField() {
   const dispatch = useDispatch();
 
   const [loaded] = useFonts({
-    Rooters: require("../assets/fonts/Rooters.ttf"),
+    Rooters: require('../assets/fonts/Rooters.ttf'),
   });
 
   const onExperienceChanged = (newValue) => {
@@ -28,7 +28,7 @@ export default function CharacterNameField() {
         <Text
           style={{
             fontSize: 16,
-            fontFamily: loaded ? "Rooters" : null,
+            fontFamily: loaded ? 'Rooters' : null,
             marginEnd: 8,
           }}
         >
@@ -43,13 +43,13 @@ export default function CharacterNameField() {
             ...styles.inputText,
             width: 95,
             marginEnd: 8,
-            fontFamily: loaded ? "Rooters" : null,
+            fontFamily: loaded ? 'Rooters' : null,
           }}
         />
         <Text
           style={{
             fontSize: 16,
-            fontFamily: loaded ? "Rooters" : null,
+            fontFamily: loaded ? 'Rooters' : null,
             marginEnd: 8,
           }}
         >
@@ -62,7 +62,7 @@ export default function CharacterNameField() {
           style={{
             ...styles.inputText,
             width: 95,
-            fontFamily: loaded ? "Rooters" : null,
+            fontFamily: loaded ? 'Rooters' : null,
           }}
         />
       </View>
@@ -72,7 +72,7 @@ export default function CharacterNameField() {
 
 const styles = StyleSheet.create({
   characterInfoContainer: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     padding: 16,
     borderWidth: 1,
     borderRadius: 8,
@@ -80,13 +80,13 @@ const styles = StyleSheet.create({
   },
 
   infoRow: {
-    flexDirection: "row",
-    alignContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignContent: 'center',
+    alignItems: 'center',
   },
 
   inputText: {
-    backgroundColor: "lightgrey",
+    backgroundColor: 'lightgrey',
     fontSize: 16,
     paddingHorizontal: 5,
   },

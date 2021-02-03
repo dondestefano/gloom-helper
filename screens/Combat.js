@@ -11,7 +11,7 @@ import { getCharacterName } from '../redux/characterReducer';
 
 export default function Combat() {
   const activeDeck = useSelector(getActiveDeck);
-  const characterName = useSelector(getCharacterName)
+  const characterName = useSelector(getCharacterName);
   const dispatch = useDispatch();
 
   const [loaded] = useFonts({
@@ -21,38 +21,49 @@ export default function Combat() {
   const drawTop = () => {
     // Reset activeDeck if there are no cards left.
     if (activeDeck.length === 0) {
-      dispatch({ type: SHUFFLE_DECK })
-    } 
-    dispatch({ type: DRAW_CARD })
-  }
+      dispatch({ type: SHUFFLE_DECK });
+    }
+    dispatch({ type: DRAW_CARD });
+  };
 
   return (
-    <SafeAreaView style={{ alignItems: 'center', flex: 1}}>
+    <SafeAreaView style={{ alignItems: 'center', flex: 1 }}>
       <SafeAreaView
         // Adds a safa are for Android device.
         style={{
-        paddingTop: Platform.OS === 'android' ? 25 : 0
-      }}
+          paddingTop: Platform.OS === 'android' ? 25 : 0,
+        }}
       />
-      <Text style={{fontSize: 20, marginTop: 20, marginBottom: 8, fontFamily: loaded? "Rooters" : null}}>{characterName}'s status</Text>
+      <Text
+        style={{
+          fontSize: 20,
+          marginTop: 20,
+          marginBottom: 8,
+          fontFamily: loaded ? 'Rooters' : null,
+        }}
+      >
+        {characterName}'s status
+      </Text>
       <View
-          style={{
-              borderBottomColor: 'grey',
-              borderBottomWidth: 2,
-              width: "90%",
-              marginBottom: 16
-              }}
+        style={{
+          borderBottomColor: 'grey',
+          borderBottomWidth: 2,
+          width: '90%',
+          marginBottom: 16,
+        }}
       />
-      <StatTracker/>
-      <DrawHistory/>
+      <StatTracker />
+      <DrawHistory />
       <View style={styles.container}>
-        <CurrentCard/>
+        <CurrentCard />
         <Text>Cards in deck: {activeDeck.length}</Text>
-        <Button title="Draw card" onPress={() => drawTop()}/>
-        <Button title="Shuffle deck" onPress={() => dispatch({ type: SHUFFLE_DECK })}/>
+        <Button title="Draw card" onPress={() => drawTop()} />
+        <Button
+          title="Shuffle deck"
+          onPress={() => dispatch({ type: SHUFFLE_DECK })}
+        />
       </View>
     </SafeAreaView>
-
   );
 }
 
@@ -63,6 +74,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    width: "100%"
+    width: '100%',
   },
 });
