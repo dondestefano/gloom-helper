@@ -17,29 +17,22 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontWeight: 'bold', fontSize: 24, marginBottom: 10 }}>
-        Login
-      </Text>
-      <View style={{ width: '60%' }}>
-        <Text style={{ fontWeight: '600', fontSize: 16 }}>Email</Text>
+      <Text style={styles.headerText}>Login</Text>
+      <View style={styles.loginContainer}>
+        <Text style={styles.promptText}>Email</Text>
         <TextInput
           placeholder="Enter email"
           value={email}
           onChangeText={setEmail}
-          style={{
-            backgroundColor: 'lightgrey',
-            padding: 10,
-            borderRadius: 5,
-            marginBottom: 10,
-          }}
+          style={styles.editText}
         />
-        <Text style={{ fontWeight: '600', fontSize: 16 }}>Password</Text>
+        <Text style={styles.promptText}>Password</Text>
         <TextInput
           placeholder="Enter password"
           value={password}
           secureTextEntry={true}
           onChangeText={setPassword}
-          style={{ backgroundColor: 'lightgrey', padding: 10, borderRadius: 5 }}
+          style={styles.editText}
         />
       </View>
       <View style={styles.buttonContainer}>
@@ -68,5 +61,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     margin: 10,
     justifyContent: 'space-between',
+  },
+
+  editText: {
+    backgroundColor: 'lightgrey',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+
+  headerText: {
+    fontFamily: 'rooters-standard',
+    fontSize: 24,
+    marginBottom: 10,
+  },
+
+  promptText: {
+    fontWeight: '600',
+    fontSize: 16,
+  },
+
+  loginContainer: {
+    width: '60%',
   },
 });
