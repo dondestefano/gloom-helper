@@ -50,13 +50,7 @@ export default function Perk(props) {
       //Shuffle deck when old cards are returned.
       dispatch({ type: SHUFFLE_DECK });
     }
-  }, [
-    dispatch,
-    hasBeenActivated,
-    props.addCards,
-    props.removeCards,
-    toggleCheckBox,
-  ]);
+  }, [toggleCheckBox]);
 
   return (
     <View>
