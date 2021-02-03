@@ -1,11 +1,26 @@
 import React from "react";
 import { StyleSheet, View, TextInput, Text } from "react-native";
 import { useFonts } from "expo-font";
+import {
+  getCharacterExperience,
+  getCharacterLevel,
+} from "../redux/characterReducer";
+import { SET_EXPERIENCE } from "../redux/actionTypes";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function CharacterNameField() {
+  const dispatch = useDispatch();
+
   const [loaded] = useFonts({
     Rooters: require("../assets/fonts/Rooters.ttf"),
   });
+
+  const onExperienceChanged = (newValue) => {
+    dispatch({ type: SET_EXPERIENCE, payload: newValue });
+  };
+
+  const characterLevel = useSelector(getCharacterLevel);
+  const characterExperience = useSelector(getCharacterExperience);
 
   return (
     <View style={styles.characterInfoContainer}>
@@ -21,7 +36,9 @@ export default function CharacterNameField() {
         </Text>
         <TextInput
           placeholder="0"
+          value={characterExperience.toString()}
           keyboardType="numeric"
+          onChangeText={(text) => onExperienceChanged(text)}
           style={{
             ...styles.inputText,
             width: 95,
@@ -40,6 +57,7 @@ export default function CharacterNameField() {
         </Text>
         <TextInput
           placeholder="0"
+          value={characterLevel.toString()}
           keyboardType="numeric"
           style={{
             ...styles.inputText,

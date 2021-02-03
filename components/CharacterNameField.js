@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CHANGE_CHARACTERS_NAME } from "../redux/actionTypes";
 import { getCharacterName } from "../redux/characterReducer";
 import { useFonts } from "expo-font";
+import { useEffect } from "react";
 
 export default function CharacterNameField() {
   const [newName, setNewName] = useState(initialName());
@@ -15,9 +16,12 @@ export default function CharacterNameField() {
     Rooters: require("../assets/fonts/Rooters.ttf"),
   });
 
-  const onEditDone = () => {
-    dispatch({ type: CHANGE_CHARACTERS_NAME, payload: newName });
-  };
+  useEffect(() => {
+    // Only update the name if it's new.
+    if (newName !== characterName) {
+      dispatch({ type: CHANGE_CHARACTERS_NAME, payload: newName });
+    }
+  }, [newName]);
 
   const onChangeText = (newName) => {
     setNewName(newName);
@@ -47,7 +51,6 @@ export default function CharacterNameField() {
           placeholder="Character name"
           value={newName}
           onChangeText={(text) => onChangeText(text)}
-          onEndEditing={onEditDone}
           style={{
             ...styles.inputText,
             width: 230,
