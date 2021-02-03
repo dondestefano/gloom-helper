@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, Text } from 'react-native';
+import { StyleSheet, Platform, View, SafeAreaView, Text } from 'react-native';
 
 export default function HeaderComponent({ title }) {
   return (
