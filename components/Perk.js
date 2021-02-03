@@ -61,7 +61,7 @@ export default function Perk(props) {
   return (
     <View>
       <View style={styles.container}>
-        <Text style={{}}>{props.perkRule}</Text>
+        <Text style={styles.text}>{props.perkRule}</Text>
         <CheckBox
           disabled={false}
           value={toggleCheckBox}
