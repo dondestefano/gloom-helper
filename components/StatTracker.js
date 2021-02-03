@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import { useFonts } from 'expo-font';
 
 const incrementIcon = require('../assets/incrementIcon.png');
 const decrementIcon = require('../assets/decrementIcon.png');
@@ -15,24 +14,18 @@ const useCounter = (initialAmount = 0) => {
 };
 
 const Tracker = ({ stat, color, amount, increment, decrement }) => {
-  const [loaded] = useFonts({
-    Rooters: require('../assets/fonts/Rooters.ttf'),
-  });
-
   return (
     <View style={{ ...styles.tracker, backgroundColor: color }}>
       <TouchableOpacity onPress={decrement} activeOpacity={0.8}>
-        <Image style={{ width: 30, height: 30 }} source={decrementIcon} />
+        <Image style={styles.buttonImage} source={decrementIcon} />
       </TouchableOpacity>
 
-      <Text
-        style={{ ...styles.trackerText, fontFamily: loaded ? 'Rooters' : null }}
-      >
+      <Text style={styles.trackerText}>
         {stat}: {amount}
       </Text>
 
       <TouchableOpacity onPress={increment} activeOpacity={0.8}>
-        <Image style={{ width: 30, height: 30 }} source={incrementIcon} />
+        <Image style={styles.buttonImage} source={incrementIcon} />
       </TouchableOpacity>
     </View>
   );
@@ -78,6 +71,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderWidth: 1,
     fontSize: 17,
+    fontFamily: 'rooters-standard',
+  },
+
+  buttonImage: {
+    width: 30,
+    height: 30,
   },
 
   tracker: {

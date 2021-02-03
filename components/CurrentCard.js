@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { useSelector } from 'react-redux';
 import { getDrawnDeck } from '../redux/deckReducer';
 
@@ -19,7 +19,7 @@ export default function Card() {
     <View
       style={{ ...styles.card, backgroundColor: currentCard().backgroundColor }}
     >
-      <Image source={currentCard().img} style={{ width: 170, height: 170 }} />
+      <Image source={currentCard().img} style={styles.cardImage} />
     </View>
   );
 }
@@ -33,5 +33,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 5,
     margin: 5,
+  },
+
+  cardImage: {
+    width: 170,
+    height: 170,
   },
 });

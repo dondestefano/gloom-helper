@@ -10,7 +10,7 @@ export default function CharacterPerks() {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        style={{ height: '80%' }}
+        style={styles.listContainer}
         data={perkList}
         renderItem={({ item }) => (
           <Perk
@@ -30,5 +30,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     padding: 5,
+  },
+
+  listContainer: {
+    height: '80%',
   },
 });

@@ -12,7 +12,7 @@ export default function Character() {
   const selectedCharacter = useSelector(getSelectedCharacter);
 
   const [loaded] = useFonts({
-    Rooters: require('../assets/fonts/Rooters.ttf'),
+    Rooters: require('../assets/fonts/rooters-standard.ttf'),
   });
 
   return (

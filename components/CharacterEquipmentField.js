@@ -8,15 +8,10 @@ import {
   Image,
   Alert,
 } from 'react-native';
-import { useFonts } from 'expo-font';
 
 const clearCharacterItemsButton = require('../assets/clearItemsBtn.png');
 
 export default function CharacterEquipmentField() {
-  const [loaded] = useFonts({
-    Rooters: require('../assets/fonts/Rooters.ttf'),
-  });
-
   const characterItemInputRef = useRef(null);
 
   const clearItemAlert = () => {
@@ -44,26 +39,19 @@ export default function CharacterEquipmentField() {
   return (
     <View style={styles.characterInfoContainer}>
       <View style={styles.infoRow}>
-        <Text style={{ ...styles.text, fontFamily: loaded ? 'Rooters' : null }}>
-          Gold:
-        </Text>
+        <Text style={styles.text}>Gold:</Text>
         <TextInput
           placeholder="0"
           keyboardType="numeric"
-          style={{ ...styles.inputText, fontFamily: loaded ? 'Rooters' : null }}
+          style={styles.inputText}
         />
       </View>
-      <Text style={{ ...styles.text, fontFamily: loaded ? 'Rooters' : null }}>
-        Items:
-      </Text>
+      <Text style={styles.text}>Items:</Text>
       <TextInput
         placeholder="Character items"
         ref={characterItemInputRef}
         multiline={true}
-        style={{
-          ...styles.equipmentInput,
-          fontFamily: loaded ? 'Rooters' : null,
-        }}
+        style={styles.equipmentInput}
       />
       <TouchableOpacity
         style={styles.buttonSize}
@@ -97,6 +85,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     width: 95,
     marginEnd: 8,
+    fontFamily: 'rooters-standard',
   },
 
   equipmentInput: {
@@ -107,11 +96,13 @@ const styles = StyleSheet.create({
     height: 200,
     marginBottom: 8,
     textAlignVertical: 'top',
+    fontFamily: 'rooters-standard',
   },
 
   text: {
     fontSize: 16,
     marginBottom: 8,
+    fontFamily: 'rooters-standard',
   },
 
   buttonSize: {

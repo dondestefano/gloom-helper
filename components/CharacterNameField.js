@@ -3,7 +3,6 @@ import { StyleSheet, View, TextInput, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { CHANGE_CHARACTERS_NAME } from '../redux/actionTypes';
 import { getCharacterName } from '../redux/characterReducer';
-import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
 
 export default function CharacterNameField() {
@@ -11,10 +10,6 @@ export default function CharacterNameField() {
   const dispatch = useDispatch();
 
   const characterName = useSelector(getCharacterName);
-
-  const [loaded] = useFonts({
-    Rooters: require('../assets/fonts/Rooters.ttf'),
-  });
 
   useEffect(() => {
     // Only update the name if it's new.
@@ -38,21 +33,12 @@ export default function CharacterNameField() {
   return (
     <View style={styles.characterInfoContainer}>
       <View style={styles.infoRow}>
-        <Text
-          style={{
-            fontFamily: loaded ? 'Rooters' : null,
-          }}
-        >
-          Name:
-        </Text>
+        <Text style={styles.text}>Name:</Text>
         <TextInput
           placeholder="Character name"
           value={newName}
           onChangeText={(text) => onChangeText(text)}
-          style={{
-            ...styles.inputText,
-            fontFamily: loaded ? 'Rooters' : null,
-          }}
+          style={styles.inputText}
         />
       </View>
     </View>
@@ -77,6 +63,7 @@ const styles = StyleSheet.create({
   text: {
     marginEnd: 8,
     fontSize: 16,
+    fontFamily: 'rooters-standard',
   },
 
   inputText: {
@@ -84,5 +71,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingHorizontal: 5,
     width: 230,
+    fontFamily: 'rooters-standard',
   },
 });

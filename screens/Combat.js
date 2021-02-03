@@ -15,7 +15,7 @@ export default function Combat() {
   const dispatch = useDispatch();
 
   const [loaded] = useFonts({
-    Rooters: require('../assets/fonts/Rooters.ttf'),
+    Rooters: require('../assets/fonts/rooters-standard.ttf'),
   });
 
   const drawTop = () => {

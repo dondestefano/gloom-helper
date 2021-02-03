@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { StyleSheet, View, Alert, Text, Modal } from 'react-native';
 import { AuthContext } from '../context/AuthContext';
-import { useFonts } from 'expo-font';
 import CustomButton from './CustomButton';
 import { useDispatch } from 'react-redux';
 import { RESET_CHARACTER } from '../redux/actionTypes';
@@ -14,10 +13,6 @@ const changeCharacterButton = require('../assets/changeCharacterBtn.png');
 const SettingsModal = ({ isVisible, setIsVisible }) => {
   const { signOut } = useContext(AuthContext);
   const dispatch = useDispatch();
-
-  const [loaded] = useFonts({
-    Rooters: require('../assets/fonts/Rooters.ttf'),
-  });
 
   function userSignOut() {
     Alert.alert('Signing out!', 'Are you sure you want to log out?', [
@@ -64,23 +59,8 @@ const SettingsModal = ({ isVisible, setIsVisible }) => {
       <Modal visible={isVisible} transparent>
         <View style={styles.modalBackground}>
           <View style={styles.modal}>
-            <Text
-              style={{
-                fontSize: 20,
-                marginBottom: 8,
-                fontFamily: loaded ? 'Rooters' : null,
-              }}
-            >
-              Settings
-            </Text>
-            <View
-              style={{
-                borderBottomColor: 'grey',
-                borderBottomWidth: 2,
-                width: '90%',
-                marginBottom: 8,
-              }}
-            />
+            <Text style={styles.settingsHeaderText}>Settings</Text>
+            <View style={styles.headerBorderLine} />
             <CustomButton
               image={changeCharacterButton}
               onPressEffect={changeCharacter}
@@ -117,6 +97,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  settingsHeaderText: {
+    fontSize: 20,
+    marginBottom: 8,
+    fontFamily: 'rooters-standard',
+  },
+
+  headerBorderLine: {
+    borderBottomColor: 'grey',
+    borderBottomWidth: 2,
+    width: '90%',
+    marginBottom: 8,
   },
 
   modalBackground: {

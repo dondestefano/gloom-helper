@@ -17,23 +17,14 @@ export default function DrawHistory() {
   };
 
   return (
-    <SafeAreaView style={{ height: '25%' }}>
+    <SafeAreaView style={styles.safeAreaContainer}>
       <FlatList
         contentContainerStyle={styles.container}
         data={drawnDeck}
         inverted
         numColumns={4}
         ListHeaderComponent={
-          <Text
-            style={{
-              fontSize: 18,
-              marginVertical: 8,
-              width: 250,
-              textAlign: 'center',
-            }}
-          >
-            Draw history
-          </Text>
+          <Text style={styles.headerText}>Draw history</Text>
         }
         renderItem={({ item }) => (
           <View
@@ -43,7 +34,7 @@ export default function DrawHistory() {
               borderColor: highlightCurrentCard(item.id) ? 'lime' : 'black',
             }}
           >
-            <Image source={item.img} style={{ width: 40, height: 40 }} />
+            <Image source={item.img} style={styles.cardImage} />
           </View>
         )}
       />
@@ -60,6 +51,18 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 
+  safeAreaContainer: {
+    height: '25%',
+  },
+
+  headerText: {
+    fontSize: 18,
+    marginVertical: 8,
+    width: 250,
+    textAlign: 'center',
+    fontFamily: 'Rooter',
+  },
+
   card: {
     width: 50,
     height: 40,
@@ -68,5 +71,10 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 2,
     margin: 5,
+  },
+
+  cardImage: {
+    width: 40,
+    height: 40,
   },
 });

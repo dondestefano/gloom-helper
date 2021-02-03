@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { ADD_CARD, REMOVE_CARD, SHUFFLE_DECK } from '../redux/actionTypes';
 import PropTypes from 'prop-types';
-import { useFonts } from 'expo-font';
 
 Perk.defaultProps = {
   perkRule: 'No rule',
@@ -23,10 +22,6 @@ export default function Perk(props) {
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
   const [hasBeenActivated, setHasBeenActivated] = useState(false);
   const dispatch = useDispatch();
-
-  const [loaded] = useFonts({
-    Rooters: require('../assets/fonts/Rooters.ttf'),
-  });
 
   useEffect(() => {
     if (toggleCheckBox === true) {
@@ -66,29 +61,14 @@ export default function Perk(props) {
   return (
     <View>
       <View style={styles.container}>
-        <Text
-          style={{
-            width: 250,
-            fontFamily: loaded ? 'Rooters' : null,
-            fontSize: 15,
-          }}
-        >
-          {props.perkRule}
-        </Text>
+        <Text style={{}}>{props.perkRule}</Text>
         <CheckBox
           disabled={false}
           value={toggleCheckBox}
           onValueChange={(newValue) => setToggleCheckBox(newValue)}
         />
       </View>
-      <View
-        style={{
-          borderBottomColor: 'grey',
-          borderBottomWidth: 1,
-          width: '100%',
-          marginBottom: 16,
-        }}
-      />
+      <View style={styles.borderLine} />
     </View>
   );
 }
@@ -100,5 +80,18 @@ const styles = StyleSheet.create({
     padding: 5,
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+
+  text: {
+    width: 250,
+    fontFamily: 'rooters-standard',
+    fontSize: 15,
+  },
+
+  borderLine: {
+    borderBottomColor: 'grey',
+    borderBottomWidth: 1,
+    width: '100%',
+    marginBottom: 16,
   },
 });
