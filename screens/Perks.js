@@ -10,7 +10,7 @@ export default function Character() {
 
   return (
     <View style={styles.container}>
-      <HeaderComponent title={selectedCharacter + 'Perks'} />
+      <HeaderComponent title={selectedCharacter + ' Perks'} />
       <CharacterPerks />
     </View>
   );
