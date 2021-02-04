@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState, useContext } from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { AuthContext } from '../context/AuthContext';
+
+const logo = require('../assets/gloomsaverLogo.png');
 
 export default function Login() {
   const navigation = useNavigation();
@@ -17,6 +19,7 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
+      <Image style={styles.logoImage} source={logo} />
       <Text style={styles.headerText}>Login</Text>
       <View style={styles.loginContainer}>
         <Text style={styles.promptText}>Email</Text>
@@ -83,5 +86,10 @@ const styles = StyleSheet.create({
 
   loginContainer: {
     width: '60%',
+  },
+
+  logoImage: {
+    width: 300,
+    height: 200,
   },
 });
