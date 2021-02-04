@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { ADD_CARD, REMOVE_CARD, SHUFFLE_DECK } from '../redux/actionTypes';
 import PropTypes from 'prop-types';
@@ -20,37 +20,44 @@ Perk.propTypes = {
 
 export default function Perk(props) {
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
-  const [hasBeenActivated, setHasBeenActivated] = useState(false);
   const dispatch = useDispatch();
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
-    if (toggleCheckBox === true) {
-      //On select.
-      //Add cards from addCards and remove cards from removeCards.
-      props.addCards.map((card) => dispatch({ type: ADD_CARD, payload: card }));
-      props.removeCards.map((card) =>
-        dispatch({ type: REMOVE_CARD, payload: card.id })
-      );
-      setHasBeenActivated(true);
+    // Prevent perks from activating on mount.
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      //On perk selected.
+      if (toggleCheckBox === true) {
+        //Add cards from addCards.
+        props.addCards.map((card) =>
+          dispatch({ type: ADD_CARD, payload: card })
+        );
+        //Remove cards from removeCards.
+        props.removeCards.map((card) =>
+          dispatch({ type: REMOVE_CARD, payload: card.id })
+        );
+        //Shuffle deck when new cards are added.
+        dispatch({ type: SHUFFLE_DECK });
+      }
 
-      //Shuffle deck when new cards are added.
-      dispatch({ type: SHUFFLE_DECK });
+      //Reverse order for deselecting perk.
+      if (toggleCheckBox === false) {
+        //Add cards from removeCards.
+        props.addCards.map((card) =>
+          dispatch({ type: REMOVE_CARD, payload: card.id })
+        );
+        //Remove cards from addCards
+        props.removeCards.map((card) =>
+          dispatch({ type: ADD_CARD, payload: card })
+        );
+
+        //Shuffle deck when old cards are returned.
+        dispatch({ type: SHUFFLE_DECK });
+      }
     }
-
-    if (toggleCheckBox === false && hasBeenActivated === true) {
-      //Reverse order for deselect.
-      //Add cards from removeCards and remove cards from addCards.
-      props.addCards.map((card) =>
-        dispatch({ type: REMOVE_CARD, payload: card.id })
-      );
-      props.removeCards.map((card) =>
-        dispatch({ type: ADD_CARD, payload: card })
-      );
-
-      //Shuffle deck when old cards are returned.
-      dispatch({ type: SHUFFLE_DECK });
-    }
-  }, [toggleCheckBox]);
+  }, [dispatch, props.addCards, props.removeCards, toggleCheckBox]);
 
   return (
     <View>
