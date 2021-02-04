@@ -6,7 +6,7 @@ export default function HeaderComponent({ title }) {
     <View style={styles.container}>
       <SafeAreaView
         // Adds a safe area for Android device.
-        style={{ paddingTop: Platform.OS === 'android' ? 25 : 0 }}
+        style={styles.safeArea}
       />
       <Text style={styles.text}>{title}</Text>
       <View style={styles.borderLine} />
@@ -17,6 +17,10 @@ export default function HeaderComponent({ title }) {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+  },
+
+  safeArea: {
+    paddingTop: Platform.OS === 'android' ? 25 : 0,
   },
 
   text: {
