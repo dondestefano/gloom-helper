@@ -44,12 +44,12 @@ const styles = StyleSheet.create({
   screenContainer: {
     alignItems: 'center',
     flex: 1,
+    backgroundColor: 'white',
   },
 
   container: {
     flex: 1,
     padding: 12,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',

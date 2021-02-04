@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
     padding: 20,
-    backgroundColor: 'white',
   },
 
   trackerText: {

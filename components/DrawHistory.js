@@ -53,6 +53,10 @@ const styles = StyleSheet.create({
 
   safeAreaContainer: {
     height: '25%',
+    width: '100%',
+    backgroundColor: '#d7c797',
+    alignItems: 'center',
+    borderWidth: 4,
   },
 
   headerText: {

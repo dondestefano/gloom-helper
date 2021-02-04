@@ -11,6 +11,13 @@ const plusThree = require('../assets/plusThree.png');
 
 //Perks for Voidwarden character.
 
+const defaultColor = '#708090';
+const positiveColor = '#99cc33';
+const negativeColor = '#cc3300';
+const healColor = '#ff9189';
+const curseColor = '#29544B';
+const poisonColor = '#8DB287';
+
 export const CharacterVoidwardenPerks = [
   // Perk 1
   {
@@ -18,8 +25,18 @@ export const CharacterVoidwardenPerks = [
     perkRule: 'Remove two -1 cards',
     addCards: [],
     removeCards: [
-      { id: 'minusOne1', title: '-1', img: minusOne, backgroundColor: 'red' },
-      { id: 'minusOne2', title: '-1', img: minusOne, backgroundColor: 'red' },
+      {
+        id: 'minusOne1',
+        title: '-1',
+        img: minusOne,
+        backgroundColor: negativeColor,
+      },
+      {
+        id: 'minusOne2',
+        title: '-1',
+        img: minusOne,
+        backgroundColor: negativeColor,
+      },
     ],
   },
 
@@ -29,7 +46,12 @@ export const CharacterVoidwardenPerks = [
     perkRule: 'Remove one -2 card',
     addCards: [],
     removeCards: [
-      { id: 'minusTwo', title: '-2', img: minusTwo, backgroundColor: 'red' },
+      {
+        id: 'minusTwo',
+        title: '-2',
+        img: minusTwo,
+        backgroundColor: negativeColor,
+      },
     ],
   },
 
@@ -42,11 +64,16 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusOneDarkness1',
         title: '+1 Darkness',
         img: plusOneDarkness,
-        backgroundColor: 'green',
+        backgroundColor: positiveColor,
       },
     ],
     removeCards: [
-      { id: 'plusZero1', title: '+0', img: plusZero, backgroundColor: 'grey' },
+      {
+        id: 'plusZero1',
+        title: '+0',
+        img: plusZero,
+        backgroundColor: defaultColor,
+      },
     ],
   },
 
@@ -59,11 +86,16 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusOneDarkness2',
         title: '+1 Darkness',
         img: plusOneDarkness,
-        backgroundColor: 'green',
+        backgroundColor: positiveColor,
       },
     ],
     removeCards: [
-      { id: 'plusZero2', title: '+0', img: plusZero, backgroundColor: 'grey' },
+      {
+        id: 'plusZero2',
+        title: '+0',
+        img: plusZero,
+        backgroundColor: defaultColor,
+      },
     ],
   },
 
@@ -76,11 +108,16 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusOneIce1',
         title: '+1 Ice',
         img: plusOneIce,
-        backgroundColor: 'green',
+        backgroundColor: positiveColor,
       },
     ],
     removeCards: [
-      { id: 'plusZero3', title: '+0', img: plusZero, backgroundColor: 'grey' },
+      {
+        id: 'plusZero3',
+        title: '+0',
+        img: plusZero,
+        backgroundColor: defaultColor,
+      },
     ],
   },
 
@@ -93,11 +130,16 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusOneIce2',
         title: '+1 Ice',
         img: plusOneIce,
-        backgroundColor: 'green',
+        backgroundColor: positiveColor,
       },
     ],
     removeCards: [
-      { id: 'plusZero4', title: '+0', img: plusZero, backgroundColor: 'grey' },
+      {
+        id: 'plusZero4',
+        title: '+0',
+        img: plusZero,
+        backgroundColor: defaultColor,
+      },
     ],
   },
 
@@ -110,11 +152,16 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusZeroHealOne1',
         title: '+0 Heal 1',
         img: PlusZeroHealOne,
-        backgroundColor: '#ff9189',
+        backgroundColor: healColor,
       },
     ],
     removeCards: [
-      { id: 'minusOne3', title: '-1', img: minusOne, backgroundColor: 'red' },
+      {
+        id: 'minusOne3',
+        title: '-1',
+        img: minusOne,
+        backgroundColor: negativeColor,
+      },
     ],
   },
 
@@ -127,11 +174,16 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusZeroHealOne2',
         title: '+0 Heal 1',
         img: PlusZeroHealOne,
-        backgroundColor: '#ff9189',
+        backgroundColor: healColor,
       },
     ],
     removeCards: [
-      { id: 'minusOne4', title: '-1', img: minusOne, backgroundColor: 'red' },
+      {
+        id: 'minusOne4',
+        title: '-1',
+        img: minusOne,
+        backgroundColor: negativeColor,
+      },
     ],
   },
 
@@ -144,7 +196,7 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusOneHealOne1',
         title: '+1 Heal 1',
         img: PlusOneHealOne,
-        backgroundColor: '#ff9189',
+        backgroundColor: healColor,
       },
     ],
     removeCards: [],
@@ -159,7 +211,7 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusOneHealOne2',
         title: '+1 Heal 1',
         img: PlusOneHealOne,
-        backgroundColor: '#ff9189',
+        backgroundColor: healColor,
       },
     ],
     removeCards: [],
@@ -174,7 +226,7 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusOneHealOne3',
         title: '+1 Heal 1',
         img: PlusOneHealOne,
-        backgroundColor: '#ff9189',
+        backgroundColor: healColor,
       },
     ],
     removeCards: [],
@@ -189,7 +241,7 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusOnePoison1',
         title: '+1 Poison',
         img: plusOnePoison,
-        backgroundColor: '#8DB287',
+        backgroundColor: poisonColor,
       },
     ],
     removeCards: [],
@@ -204,7 +256,7 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusThree1',
         title: '+3',
         img: plusThree,
-        backgroundColor: 'green',
+        backgroundColor: positiveColor,
       },
     ],
     removeCards: [],
@@ -219,7 +271,7 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusOneCurse1',
         title: '+1 Curse',
         img: plusOneCurse,
-        backgroundColor: '#29544B',
+        backgroundColor: curseColor,
       },
     ],
     removeCards: [],
@@ -234,7 +286,7 @@ export const CharacterVoidwardenPerks = [
         id: 'PlusOneCurse2',
         title: '+1 Curse',
         img: plusOneCurse,
-        backgroundColor: '#29544B',
+        backgroundColor: curseColor,
       },
     ],
     removeCards: [],

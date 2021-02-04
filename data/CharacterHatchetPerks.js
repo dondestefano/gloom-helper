@@ -13,6 +13,16 @@ const plusThree = require('../assets/plusThree.png');
 
 //Perks for Hatchet character.
 
+const defaultColor = '#708090';
+const positiveColor = '#99cc33';
+const negativeColor = '#cc3300';
+const muddleColor = '#B88546';
+const poisonColor = '#8DB287';
+const immobilizeColor = '#f37735';
+const stunColor = '#0e1a40';
+const woundColor = '#740001';
+const pushColor = '#536872';
+
 export const CharacterHatchetPerks = [
   // Perk 1
   {
@@ -20,8 +30,18 @@ export const CharacterHatchetPerks = [
     perkRule: 'Remove two -1 cards',
     addCards: [],
     removeCards: [
-      { id: 'minusOne1', title: '-1', img: minusOne, backgroundColor: 'red' },
-      { id: 'minusOne2', title: '-1', img: minusOne, backgroundColor: 'red' },
+      {
+        id: 'minusOne1',
+        title: '-1',
+        img: minusOne,
+        backgroundColor: negativeColor,
+      },
+      {
+        id: 'minusOne2',
+        title: '-1',
+        img: minusOne,
+        backgroundColor: negativeColor,
+      },
     ],
   },
 
@@ -31,8 +51,18 @@ export const CharacterHatchetPerks = [
     perkRule: 'Remove two -1 cards',
     addCards: [],
     removeCards: [
-      { id: 'minusOne3', title: '-1', img: minusOne, backgroundColor: 'red' },
-      { id: 'minusOne4', title: '-1', img: minusOne, backgroundColor: 'red' },
+      {
+        id: 'minusOne3',
+        title: '-1',
+        img: minusOne,
+        backgroundColor: negativeColor,
+      },
+      {
+        id: 'minusOne4',
+        title: '-1',
+        img: minusOne,
+        backgroundColor: negativeColor,
+      },
     ],
   },
 
@@ -45,11 +75,16 @@ export const CharacterHatchetPerks = [
         id: 'PlusTwoMuddle1',
         title: '+2 Muddle',
         img: plusTwoMuddle,
-        backgroundColor: '#B88546',
+        backgroundColor: muddleColor,
       },
     ],
     removeCards: [
-      { id: 'plusZero1', title: '+0', img: plusZero, backgroundColor: 'grey' },
+      {
+        id: 'plusZero1',
+        title: '+0',
+        img: plusZero,
+        backgroundColor: defaultColor,
+      },
     ],
   },
 
@@ -62,11 +97,16 @@ export const CharacterHatchetPerks = [
         id: 'PlusOnePoison1',
         title: '+1 Poison',
         img: plusOnePoison,
-        backgroundColor: '#8DB287',
+        backgroundColor: poisonColor,
       },
     ],
     removeCards: [
-      { id: 'plusZero2', title: '+0', img: plusZero, backgroundColor: 'grey' },
+      {
+        id: 'plusZero2',
+        title: '+0',
+        img: plusZero,
+        backgroundColor: defaultColor,
+      },
     ],
   },
 
@@ -79,11 +119,16 @@ export const CharacterHatchetPerks = [
         id: 'PlusOneWound1',
         title: '+1 Wound',
         img: plusOneWound,
-        backgroundColor: '#740001',
+        backgroundColor: woundColor,
       },
     ],
     removeCards: [
-      { id: 'plusZero3', title: '+0', img: plusZero, backgroundColor: 'grey' },
+      {
+        id: 'plusZero3',
+        title: '+0',
+        img: plusZero,
+        backgroundColor: defaultColor,
+      },
     ],
   },
 
@@ -96,11 +141,16 @@ export const CharacterHatchetPerks = [
         id: 'PlusOneImmobilize1',
         title: '+1 Immobilize',
         img: plusOneImmobilize,
-        backgroundColor: '#f37735',
+        backgroundColor: immobilizeColor,
       },
     ],
     removeCards: [
-      { id: 'plusZero4', title: '+0', img: plusZero, backgroundColor: 'grey' },
+      {
+        id: 'plusZero4',
+        title: '+0',
+        img: plusZero,
+        backgroundColor: defaultColor,
+      },
     ],
   },
 
@@ -113,11 +163,16 @@ export const CharacterHatchetPerks = [
         id: 'PlusOnePushTwo1',
         title: '+1 Push 2',
         img: plusOnePushTwo,
-        backgroundColor: '#536872',
+        backgroundColor: pushColor,
       },
     ],
     removeCards: [
-      { id: 'plusZero5', title: '+0', img: plusZero, backgroundColor: 'grey' },
+      {
+        id: 'plusZero5',
+        title: '+0',
+        img: plusZero,
+        backgroundColor: defaultColor,
+      },
     ],
   },
 
@@ -130,11 +185,16 @@ export const CharacterHatchetPerks = [
         id: 'PlusZeroStun1',
         title: '+0 Stun',
         img: plusZeroStun,
-        backgroundColor: '#0e1a40',
+        backgroundColor: stunColor,
       },
     ],
     removeCards: [
-      { id: 'plusZero6', title: '+0', img: plusZero, backgroundColor: 'grey' },
+      {
+        id: 'plusZero6',
+        title: '+0',
+        img: plusZero,
+        backgroundColor: defaultColor,
+      },
     ],
   },
 
@@ -147,11 +207,16 @@ export const CharacterHatchetPerks = [
         id: 'PlusOneStun1',
         title: '+1 Stun',
         img: plusOneStun,
-        backgroundColor: '#0e1a40',
+        backgroundColor: stunColor,
       },
     ],
     removeCards: [
-      { id: 'plusOne1', title: '+1', img: plusOne, backgroundColor: 'green' },
+      {
+        id: 'plusOne1',
+        title: '+1',
+        img: plusOne,
+        backgroundColor: positiveColor,
+      },
     ],
   },
 
@@ -164,7 +229,7 @@ export const CharacterHatchetPerks = [
         id: 'PlusTwoWind1',
         title: '+2 Wind',
         img: plusTwoWind,
-        backgroundColor: 'green',
+        backgroundColor: positiveColor,
       },
     ],
     removeCards: [],
@@ -179,7 +244,7 @@ export const CharacterHatchetPerks = [
         id: 'PlusTwoWind2',
         title: '+2 Wind',
         img: plusTwoWind,
-        backgroundColor: 'green',
+        backgroundColor: positiveColor,
       },
     ],
     removeCards: [],
@@ -194,7 +259,7 @@ export const CharacterHatchetPerks = [
         id: 'PlusTwoWind3',
         title: '+2 Wind',
         img: plusTwoWind,
-        backgroundColor: 'green',
+        backgroundColor: positiveColor,
       },
     ],
     removeCards: [],
@@ -209,11 +274,16 @@ export const CharacterHatchetPerks = [
         id: 'PlusThree1',
         title: '+3',
         img: plusThree,
-        backgroundColor: 'green',
+        backgroundColor: positiveColor,
       },
     ],
     removeCards: [
-      { id: 'plusOne2', title: '+1', img: plusOne, backgroundColor: 'green' },
+      {
+        id: 'plusOne2',
+        title: '+1',
+        img: plusOne,
+        backgroundColor: positiveColor,
+      },
     ],
   },
 
@@ -226,11 +296,16 @@ export const CharacterHatchetPerks = [
         id: 'PlusThree2',
         title: '+3',
         img: plusThree,
-        backgroundColor: 'green',
+        backgroundColor: positiveColor,
       },
     ],
     removeCards: [
-      { id: 'plusOne3', title: '+1', img: plusOne, backgroundColor: 'green' },
+      {
+        id: 'plusOne3',
+        title: '+1',
+        img: plusOne,
+        backgroundColor: positiveColor,
+      },
     ],
   },
 
@@ -243,11 +318,16 @@ export const CharacterHatchetPerks = [
         id: 'PlusThree3',
         title: '+3',
         img: plusThree,
-        backgroundColor: 'green',
+        backgroundColor: positiveColor,
       },
     ],
     removeCards: [
-      { id: 'plusOne4', title: '+1', img: plusOne, backgroundColor: 'green' },
+      {
+        id: 'plusOne4',
+        title: '+1',
+        img: plusOne,
+        backgroundColor: positiveColor,
+      },
     ],
   },
 ];
