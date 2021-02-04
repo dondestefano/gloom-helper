@@ -11,6 +11,8 @@ const plusOneStun = require('../assets/plusOneStun.png');
 const plusOnePushTwo = require('../assets/plusOnePushTwo.png');
 const plusThree = require('../assets/plusThree.png');
 
+//Perks for Hatchet character.
+
 export const CharacterHatchetPerks = [
   // Perk 1
   {

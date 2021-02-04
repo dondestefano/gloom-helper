@@ -6,6 +6,8 @@ const minusTwo = require('../assets/minusTwo.png');
 const miss = require('../assets/miss.png');
 const doubleDamage = require('../assets/double.png');
 
+//Gloomhavens default combat deck.
+
 export const DefaultDeck = [
   { id: 'plusOne1', title: '+1', img: plusOne, backgroundColor: 'green' },
   { id: 'plusOne2', title: '+1', img: plusOne, backgroundColor: 'green' },

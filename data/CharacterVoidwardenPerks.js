@@ -9,6 +9,8 @@ const plusOneCurse = require('../assets/plusOneCurse.png');
 const plusOnePoison = require('../assets/plusOnePoison.png');
 const plusThree = require('../assets/plusThree.png');
 
+//Perks for Voidwarden character.
+
 export const CharacterVoidwardenPerks = [
   // Perk 1
   {
