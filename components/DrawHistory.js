@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#d7c797',
     alignItems: 'center',
-    borderWidth: 4,
+    borderTopWidth: 4,
+    borderBottomWidth: 4,
   },
 
   headerText: {
