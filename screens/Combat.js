@@ -3,7 +3,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   SafeAreaView,
   Image,
   TouchableOpacity,
@@ -20,16 +19,6 @@ import CustomButton from '../components/CustomButton';
 
 const drawButton = require('../assets/drawBtn.png');
 const shuffleButton = require('../assets/shuffleBtn.png');
-
-const ShuffleButton = ({ image, onPressEffect }) => {
-  return (
-    <View>
-      <TouchableOpacity onPress={() => onPressEffect()} activeOpacity={0.8}>
-        <Image style={styles.shuffleButton} source={image} />
-      </TouchableOpacity>
-    </View>
-  );
-};
 
 export default function Combat() {
   const activeDeck = useSelector(getActiveDeck);
