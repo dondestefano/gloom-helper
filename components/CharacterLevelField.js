@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgrey',
     fontSize: 16,
     paddingHorizontal: 5,
-    width: 95,
+    width: 90,
     marginEnd: 8,
     fontFamily: 'rooters-standard',
   },
