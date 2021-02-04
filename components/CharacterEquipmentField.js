@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
 
   text: {
     fontSize: 16,
-    marginBottom: 8,
+    marginRight: 8,
     fontFamily: 'rooters-standard',
   },
 
