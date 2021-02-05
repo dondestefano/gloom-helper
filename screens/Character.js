@@ -1,25 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { SET_DECK } from '../redux/actionTypes';
-import { getActiveDeck } from '../redux/reducer';
-
-
-const defaultDeck = [
-  { name: "+1", id: "itemone"},
-  { name: "+0", id: "itemtwo"},
-  { name: "-1", id: "itemthree"},
-  { name: "+2", id: "itemfour"},
-  { name: "-2", id: "itemFive"}
-];
+import { StyleSheet, View } from 'react-native';
+import { useSelector } from 'react-redux';
+import { getSelectedCharacter } from '../redux/characterReducer';
+import CharacterNameField from '../components/CharacterNameField';
+import CharacterLevelField from '../components/CharacterLevelField';
+import CharacterEquipmentField from '../components/CharacterEquipmentField';
+import SettingsComponent from '../components/SettingsComponent';
+import HeaderComponent from '../components/HeaderComponent';
 
 export default function Character() {
-  const deck = useSelector(getActiveDeck);
-  const dispatch = useDispatch();
+  const selectedCharacter = useSelector(getSelectedCharacter);
 
   return (
     <View style={styles.container}>
-      <Button title="Add default deck" onPress={() => dispatch({ type: SET_DECK, payload: defaultDeck })}/>
+      <HeaderComponent title={'Character ' + selectedCharacter} />
+      <View style={styles.characterInfoContainer}>
+        <CharacterNameField />
+        <CharacterLevelField />
+        <CharacterEquipmentField />
+        <SettingsComponent />
+      </View>
     </View>
   );
 }
@@ -30,5 +30,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  characterInfoContainer: {
+    flex: 2,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    padding: 16,
   },
 });
